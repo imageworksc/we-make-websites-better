@@ -107,22 +107,43 @@
   color: var(--sf-faint);
 }
 
-/* AI note band ------------------------------------------------------------ */
-.sf-note--lead {
-  margin-top: 0;
+/* "How We Use AI": an always-open step card (same look as an open .sf-step) */
+.sf-step--card {
+  border-color: var(--sf-border-hover);
+  box-shadow: var(--sf-shadow-card);
 }
 
-.sf-note--lead h3 {
+.sf-step--card::before {
+  transform: scaleX(1);
+}
+
+.sf-step--card:hover {
+  transform: none;
+  box-shadow: var(--sf-shadow-card);
+}
+
+.sf-step--card .sf-step__head {
+  grid-template-columns: 34px minmax(0, 1fr);
+  padding-top: 26px;
+  cursor: default;
+}
+
+.sf-step--card .sf-step__head::after {
+  content: none;
+}
+
+.sf-step--card .sf-icon,
+.sf-step--card .sf-step__num {
+  color: var(--sf-green-ink);
+}
+
+.sf-step--card .sf-step__title {
   font-size: clamp(22px, 2.2vw, 28px);
 }
 
-.sf-note--lead p + p {
-  margin-top: 10px;
-}
-
-.sf-spark {
-  width: 40px;
-  height: 40px;
+.sf-step--card .sf-step__body p {
+  max-width: 72ch;
+  font-size: 17px;
 }
 
 /* feature cards ("Your Business Deserves") -------------------------------- */
