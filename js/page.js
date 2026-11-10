@@ -1,17 +1,17 @@
-/* We Make Websites Better: form validation + mobile sticky CTA.
-   main.js (shared with Search Funnels) handles reveal, nav and steps. */
+/* We Make Websites Better: form validation + phone sticky CTA.
+   script.js (from the AI Website Design page) runs the reveals and the steps. */
 (function () {
   'use strict';
 
-  var form = document.getElementById('sf-form-el');
-  var success = document.getElementById('sf-success');
+  var form = document.getElementById('form-el');
+  var ok = document.getElementById('form-ok');
   var select = document.getElementById('f-interest');
 
-  /* Links that preselect an interest */
+  /* links that preselect an interest */
   document.querySelectorAll('[data-interest]').forEach(function (a) {
     a.addEventListener('click', function () {
       select.value = a.getAttribute('data-interest');
-      select.closest('.sf-field').classList.remove('is-error');
+      select.closest('.field').classList.remove('is-error');
     });
   });
 
@@ -26,7 +26,7 @@
   if (form) {
     var req = form.querySelectorAll('[required]');
     req.forEach(function (el) {
-      function fix() { if (valid(el)) el.closest('.sf-field').classList.remove('is-error'); }
+      function fix() { if (valid(el)) el.closest('.field').classList.remove('is-error'); }
       el.addEventListener('input', fix);
       el.addEventListener('change', fix);
     });
@@ -36,20 +36,20 @@
       var first = null;
       req.forEach(function (el) {
         var bad = !valid(el);
-        el.closest('.sf-field').classList.toggle('is-error', bad);
+        el.closest('.field').classList.toggle('is-error', bad);
         if (bad && !first) first = el;
       });
       if (first) { first.focus(); return; }
       /* Hook your form handler / CRM here */
       form.style.display = 'none';
-      success.style.display = 'block';
+      ok.style.display = 'block';
     });
   }
 
-  /* Phone sticky bar: hidden while the hero CTAs or the form are on screen */
-  var bar = document.getElementById('sf-bar');
-  var hero = document.getElementById('sf-hero-cta');
-  var contact = document.getElementById('sf-form');
+  /* phone sticky bar: hidden while the hero buttons or the form are on screen */
+  var bar = document.getElementById('mbar');
+  var hero = document.getElementById('hero-cta');
+  var contact = document.getElementById('start');
   if (bar && hero && contact && 'IntersectionObserver' in window) {
     var heroV = true, formV = false;
     var update = function () { bar.classList.toggle('is-on', !heroV && !formV); };
