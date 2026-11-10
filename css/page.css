@@ -5,34 +5,7 @@
    the five-item feature row, a six-station process, the form and a footer.
    ========================================================================== */
 
-/* ---- slim header ---- */
-.site-top {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: rgba(255, 255, 255, .94);
-  backdrop-filter: saturate(1.4) blur(10px);
-  -webkit-backdrop-filter: saturate(1.4) blur(10px);
-  border-bottom: 1px solid var(--border);
-}
-.site-top__in {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  min-height: 76px;
-}
-.site-top__logo img { height: 38px; width: auto; display: block; }
-.site-top__call {
-  margin-left: auto;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--muted);
-  text-decoration: none;
-}
-.site-top__call b { color: var(--navy); font-weight: 700; }
-.site-top__call:hover b { color: var(--green-ink); }
-.site-top__btn { min-height: 44px; padding-block: 0; }
-[id] { scroll-margin-top: 92px; }
+[id] { scroll-margin-top: 96px; }
 
 /* ---- hero: one column, the washes carry the right side ---- */
 .hero h1 { text-wrap: nowrap; }
@@ -163,18 +136,6 @@
 .form-card__alt { margin: 16px 0 0; text-align: center; font-size: 14px; color: var(--muted); }
 .form-card__alt a { color: var(--blue); font-weight: 700; }
 
-/* ---- footer ---- */
-.site-foot {
-  border-top: 1px solid var(--border);
-  background: var(--band-tint);
-  padding: 28px 0;
-  text-align: center;
-  font-size: 14px;
-  color: var(--muted);
-}
-.site-foot p { margin: 0; }
-.site-foot a { color: var(--navy); font-weight: 700; text-decoration: none; }
-
 /* ---- phone sticky call ---- */
 .mbar {
   position: fixed;
@@ -204,17 +165,12 @@
 }
 
 @media (max-width: 760px) {
-  .site-top__call { display: none; }
-  .site-top__btn { margin-left: auto; }
   .mbar { display: block; }
-  .site-foot { padding-bottom: 92px; }
+  .sf-footer { padding-bottom: 76px; }
   .hero h1 { font-size: clamp(20px, 6.6vw, 46px); }
 }
 
 @media (max-width: 600px) {
-  .site-top__in { min-height: 64px; }
-  .site-top__logo img { height: 30px; }
-  .site-top__btn { display: none; }
   .feats { grid-template-columns: minmax(0, 1fr); }
   .feats li,
   .feats li + li {
