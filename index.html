@@ -3,757 +3,456 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#143c66">
 <title>We Make Websites Better. A Lot Better. | ImageWorks Creative</title>
-<meta name="description" content="Custom web design and digital marketing since 1997. No templates. No AI-generated websites. Try Before You Buy.">
+<meta name="description" content="Custom web design and digital marketing since 1997. No templates. No AI-generated websites. Ask about Try Before You Buy.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --navy-900: #0f2547;
-    --navy:     #1e3d71;
-    --navy-600: #2a5291;
-    --blue:     #1266b5;
-    --green:    #80c34a;
-    --green-dk: #5c9a2e;
-    --ink:      #1b2a41;
-    --body:     #4a5568;
-    --muted:    #6b778c;
-    --line:     #e3e8f0;
-    --soft:     #f4f7fb;
-    --white:    #ffffff;
-    --radius:   14px;
-    --shadow:   0 10px 30px rgba(15, 37, 71, 0.08);
-    --shadow-lg:0 24px 60px rgba(15, 37, 71, 0.18);
-  }
-  *, *::before, *::after { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    font-family: 'Poppins', system-ui, sans-serif;
-    font-size: 16px;
-    line-height: 1.7;
-    color: var(--body);
-    background: var(--white);
-    -webkit-font-smoothing: antialiased;
-    overflow-x: clip;
-  }
-  h1, h2, h3, p, ul, ol, dl, dd { margin: 0; padding: 0; }
-  img { max-width: 100%; display: block; }
-  a { color: inherit; }
-  [id] { scroll-margin-top: 96px; }
-  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
-
-  .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-  .section { padding: 88px 0; }
-  .section--soft { background: var(--soft); }
-  .section--navy { background: var(--navy); color: rgba(255,255,255,0.82); }
-
-  /* ---------- Type: reference pattern = bold lead-in + light follow-up ---------- */
-  .eyebrow {
-    display: inline-flex; align-items: center; gap: 10px;
-    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--green-dk); margin-bottom: 18px;
-  }
-  .eyebrow::before { content: ""; width: 28px; height: 2px; background: currentColor; }
-  .h2 {
-    font-size: clamp(1.8rem, 3.6vw, 2.75rem);
-    line-height: 1.15; font-weight: 300; letter-spacing: -0.02em;
-    color: var(--navy); margin-bottom: 20px; text-wrap: balance;
-  }
-  .h2 strong { font-weight: 700; }
-  .section--navy .h2, .section--navy .h3 { color: var(--white); }
-  .section--navy .eyebrow { color: var(--green); }
-  .h3 { font-size: 1.25rem; line-height: 1.3; font-weight: 600; color: var(--navy); margin-bottom: 10px; }
-  .lead { font-size: 1.125rem; line-height: 1.7; max-width: 680px; }
-  .p { margin-bottom: 16px; max-width: 680px; text-wrap: pretty; }
-  .p:last-child { margin-bottom: 0; }
-  .p strong, .lead strong { color: var(--navy); font-weight: 600; }
-  .section--navy .p strong { color: var(--white); }
-  .hl { color: var(--green-dk); }
-  .section--navy .hl { color: var(--green); }
-  .statement {
-    font-size: clamp(1.2rem, 2.2vw, 1.5rem); line-height: 1.4; font-weight: 600;
-    color: var(--navy); text-wrap: balance; max-width: 760px;
-  }
-
-  /* ---------- Buttons (reference: "btn-with-arrow-out") ---------- */
-  .btn {
-    display: inline-flex; align-items: center; justify-content: center; gap: 12px;
-    min-height: 54px; padding: 14px 28px;
-    border: 2px solid transparent; border-radius: 999px;
-    font-family: inherit; font-size: 1rem; font-weight: 600; line-height: 1.2;
-    text-decoration: none; cursor: pointer; white-space: nowrap;
-    transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease, box-shadow .2s ease;
-  }
-  .btn:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
-  .btn .arrow { width: 18px; height: 18px; transition: transform .2s ease; }
-  .btn:hover .arrow { transform: translate(3px, -3px); }
-  .btn--green { background: var(--green); color: var(--navy-900); box-shadow: 0 8px 20px rgba(128,195,74,.35); }
-  .btn--green:hover { background: #92d65a; transform: translateY(-2px); }
-  .btn--line { background: transparent; color: var(--navy); border-color: var(--navy); }
-  .btn--line:hover { background: var(--navy); color: var(--white); }
-  .btn--line-light { background: transparent; color: var(--white); border-color: rgba(255,255,255,.5); }
-  .btn--line-light:hover { background: var(--white); color: var(--navy); border-color: var(--white); }
-  .btn-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px; }
-  .btn-note { font-size: 0.9rem; color: var(--muted); margin-top: 12px; }
-  .section--navy .btn-note { color: rgba(255,255,255,.6); }
-
-  /* ---------- Top bar + header ---------- */
-  .topbar { background: var(--navy-900); color: rgba(255,255,255,.8); font-size: 0.82rem; }
-  .topbar .container { display: flex; justify-content: flex-end; align-items: center; gap: 22px; min-height: 38px; }
-  .topbar a { text-decoration: none; font-weight: 600; color: var(--white); }
-  .topbar a:hover { color: var(--green); }
-  .topbar .sep { opacity: .35; }
-
-  .header { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.96); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
-  .header .container { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 80px; }
-  .logo { height: 40px; width: auto; }
-  .nav { display: flex; align-items: center; gap: 30px; }
-  .nav a { font-size: 0.92rem; font-weight: 500; color: var(--ink); text-decoration: none; position: relative; padding: 6px 0; }
-  .nav a::after { content: ""; position: absolute; left: 0; bottom: 0; width: 0; height: 2px; background: var(--green); transition: width .2s ease; }
-  .nav a:hover::after { width: 100%; }
-  .header .btn { min-height: 46px; padding: 10px 22px; font-size: 0.92rem; }
-
-  /* ---------- Hero ---------- */
-  .hero {
-    position: relative; overflow: hidden;
-    background:
-      radial-gradient(900px 500px at 85% 10%, rgba(128,195,74,.18), transparent 60%),
-      radial-gradient(700px 500px at 0% 100%, rgba(18,102,181,.35), transparent 60%),
-      linear-gradient(135deg, var(--navy-900) 0%, var(--navy) 60%, var(--navy-600) 100%);
-    color: rgba(255,255,255,.85);
-    padding: 96px 0 0;
-  }
-  .hero-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: 56px; align-items: center; }
-  .hero .eyebrow { color: var(--green); }
-  .h1 {
-    font-size: clamp(2.4rem, 5.6vw, 4.4rem);
-    line-height: 1.04; font-weight: 300; letter-spacing: -0.03em;
-    color: var(--white); margin-bottom: 26px;
-  }
-  .h1 strong { display: block; font-weight: 800; color: var(--green); }
-  .rise { display: inline-block; animation: rise .6s cubic-bezier(.2,.7,.2,1) both; }
-  .rise:nth-child(1) { animation-delay: .3s; }
-  .rise:nth-child(2) { animation-delay: .42s; }
-  .rise:nth-child(3) { animation-delay: .54s; }
-  @keyframes rise { from { opacity: 0; transform: translateY(.4em); } to { opacity: 1; transform: none; } }
-  .hero .lead { color: rgba(255,255,255,.85); }
-  .hero .lead strong { color: var(--white); }
-  .hero-sub { margin-top: 18px; font-size: 1rem; }
-  .hero-sub strong { color: var(--white); font-weight: 600; }
-  .hero-tbyb strong { color: var(--green); font-weight: 700; }
-
-  /* decorative browser mockups */
-  .mock-stack { position: relative; height: 440px; }
-  .mock {
-    position: absolute; width: 78%; border-radius: 12px; overflow: hidden;
-    background: var(--white); box-shadow: var(--shadow-lg);
-    animation: float 7s ease-in-out infinite;
-  }
-  .mock-bar { height: 28px; background: #eef2f7; display: flex; align-items: center; gap: 6px; padding: 0 12px; }
-  .mock-bar i { width: 9px; height: 9px; border-radius: 50%; background: #cfd8e3; }
-  .mock-bar i:nth-child(1) { background: #ff6159; } .mock-bar i:nth-child(2) { background: #ffbd2e; } .mock-bar i:nth-child(3) { background: #28c941; }
-  .mock-body { padding: 18px; display: grid; gap: 10px; }
-  .mk { border-radius: 6px; background: #e8eef6; }
-  .mock--a { top: 0; right: 0; z-index: 1; }
-  .mock--a .mk-hero { height: 120px; background: linear-gradient(120deg, #1266b5, #80c34a); }
-  .mock--b { top: 170px; left: 0; z-index: 2; width: 70%; animation-delay: -3.5s; }
-  .mock--b .mk-hero { height: 90px; background: linear-gradient(120deg, #143c66, #2a5291); }
-  .mk-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-  .mk-row .mk { height: 46px; }
-  .mk-line { height: 10px; } .mk-line.w60 { width: 60%; } .mk-line.w40 { width: 40%; }
-  .mk-btn { height: 22px; width: 90px; border-radius: 999px; background: #80c34a; }
-  .badge {
-    position: absolute; right: 6%; bottom: 36px; z-index: 3;
-    background: var(--white); color: var(--navy); border-radius: 14px; padding: 14px 18px;
-    box-shadow: var(--shadow-lg); display: flex; align-items: center; gap: 12px; font-size: .9rem; line-height: 1.3;
-  }
-  .badge b { display: block; font-size: 1.5rem; color: var(--green-dk); font-weight: 800; }
-  @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-
-  .trust-strip { margin-top: 80px; border-top: 1px solid rgba(255,255,255,.12); }
-  .trust-strip .container { display: grid; grid-template-columns: repeat(4, 1fr); }
-  .trust-item { padding: 26px 16px; text-align: center; border-right: 1px solid rgba(255,255,255,.12); }
-  .trust-item:last-child { border-right: 0; }
-  .trust-item b { display: block; color: var(--white); font-size: 1.6rem; font-weight: 700; line-height: 1.2; }
-  .trust-item span { font-size: .85rem; color: rgba(255,255,255,.7); }
-
-  /* ---------- Split layouts ---------- */
-  .split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; align-items: center; }
-  .split--top { align-items: start; }
-
-  .ai-card {
-    background: var(--white); border-radius: 20px; padding: 40px; box-shadow: var(--shadow);
-    border: 1px solid var(--line); position: relative;
-  }
-  .ai-card .spark { position: absolute; top: -26px; left: 40px; width: 56px; height: 56px; border-radius: 16px; background: var(--navy); display: grid; place-items: center; box-shadow: var(--shadow); }
-  .ai-steps { list-style: none; display: grid; gap: 14px; margin-top: 10px; }
-  .ai-steps li { display: flex; align-items: center; gap: 14px; font-weight: 500; color: var(--navy); }
-  .ai-steps .dot { flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%; background: #eef6e8; color: var(--green-dk); display: grid; place-items: center; font-size: .85rem; font-weight: 700; }
-  .ai-steps .dot--navy { background: #e8f0fb; color: var(--navy); }
-
-  /* ---------- Box cards (reference: "Full-Service Capabilities" flex-row boxes) ---------- */
-  .boxes { display: grid; gap: 24px; margin-top: 48px; }
-  .boxes--5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-  .boxes--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .boxes--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .box {
-    background: var(--white); border: 1px solid var(--line); border-radius: var(--radius);
-    padding: 30px 26px; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-  }
-  .box:hover { transform: translateY(-6px); box-shadow: var(--shadow); border-color: transparent; }
-  .box .ico {
-    width: 56px; height: 56px; border-radius: 14px; background: #eef6e8;
-    display: grid; place-items: center; margin-bottom: 20px;
-  }
-  .box .ico svg { width: 28px; height: 28px; }
-  .box .title { display: block; font-size: 1.05rem; font-weight: 600; color: var(--navy); line-height: 1.35; margin-bottom: 6px; }
-  .box p { font-size: .95rem; line-height: 1.6; }
-  .box--cta { background: var(--navy); border-color: var(--navy); color: rgba(255,255,255,.8); display: flex; flex-direction: column; justify-content: space-between; gap: 18px; }
-  .box--cta .h3 { color: var(--white); font-size: 1.3rem; }
-  .box--cta .btn { align-self: flex-start; }
-
-  .center { text-align: center; }
-  .center .h2, .center .lead, .center .p { margin-left: auto; margin-right: auto; }
-
-  /* ---------- AI is a tool: "No" list ---------- */
-  .no-list { list-style: none; display: grid; gap: 14px; }
-  .no-list li {
-    display: flex; align-items: center; gap: 16px;
-    background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
-    border-radius: 12px; padding: 18px 22px; color: var(--white); font-weight: 600; font-size: 1.05rem; line-height: 1.35;
-  }
-  .no-list .x { flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: rgba(255,97,89,.15); display: grid; place-items: center; }
-  .section--soft .no-list li, .no-list--light li { background: var(--white); border-color: var(--line); color: var(--navy); box-shadow: 0 2px 8px rgba(15,37,71,.04); }
-
-  /* ---------- Try Before You Buy steps ---------- */
-  .tbyb-head { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: 48px; align-items: end; }
-  .tbyb-head .statement { margin-top: 8px; }
-  .step { position: relative; overflow: hidden; }
-  .step .num {
-    font-size: 3.2rem; font-weight: 800; line-height: 1; letter-spacing: -0.04em;
-    color: transparent; -webkit-text-stroke: 1.5px var(--green); margin-bottom: 16px; display: block;
-  }
-  .result {
-    margin-top: 56px; border-radius: 20px; padding: 40px 44px;
-    background: linear-gradient(120deg, var(--navy-900), var(--navy) 60%, var(--navy-600));
-    color: rgba(255,255,255,.85);
-    display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 36px; align-items: center;
-  }
-  .result .big { font-size: clamp(3rem, 6vw, 4.8rem); font-weight: 800; line-height: 1; color: var(--green); letter-spacing: -0.04em; }
-  .result .statement { color: var(--white); font-size: 1.25rem; margin-bottom: 6px; }
-
-  /* ---------- Marketing ---------- */
-  .pull {
-    border-left: 4px solid var(--green); padding: 8px 0 8px 28px; margin: 8px 0 24px;
-    font-size: clamp(1.5rem, 2.8vw, 2.1rem); line-height: 1.25; font-weight: 600; color: var(--navy); letter-spacing: -0.015em;
-  }
-  .channel-list { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; }
-  .channel-list li { background: var(--white); border-radius: 12px; padding: 18px; display: flex; gap: 12px; align-items: center; font-weight: 500; color: var(--navy); box-shadow: 0 2px 10px rgba(15,37,71,.05); }
-  .channel-list svg { flex-shrink: 0; }
-
-  /* ---------- Why / experience ---------- */
-  .why .box { text-align: center; }
-  .why .ico { margin: 0 auto 18px; }
-
-  /* ---------- Form ---------- */
-  .form-wrap { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 56px; align-items: start; }
-  .form-card { background: var(--white); color: var(--body); border-radius: 20px; padding: 40px; box-shadow: var(--shadow-lg); }
-  .form-card .h3 { font-size: 1.35rem; margin-bottom: 22px; }
-  .fgrid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 0 16px; }
-  .field { margin-bottom: 16px; min-width: 0; }
-  .field--full { grid-column: 1 / -1; }
-  .label { display: block; font-size: .85rem; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
-  .input, .select, .textarea {
-    display: block; width: 100%; font-family: inherit; font-size: 1rem; line-height: 1.4; color: var(--ink);
-    background: var(--soft); border: 1.5px solid var(--line); border-radius: 10px; padding: 12px 14px; min-height: 50px;
-    transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
-  }
-  .select {
-    appearance: none; -webkit-appearance: none; padding-right: 44px; cursor: pointer;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' stroke='%231e3d71' stroke-width='2' fill='none'/%3E%3C/svg%3E");
-    background-repeat: no-repeat; background-position: right 16px center; background-size: 12px;
-  }
-  .textarea { min-height: 110px; resize: vertical; }
-  .input:focus, .select:focus, .textarea:focus { outline: none; background: var(--white); border-color: var(--blue); box-shadow: 0 0 0 3px rgba(18,102,181,.18); }
-  .err { display: none; font-size: .82rem; font-weight: 600; color: #b3261e; margin-top: 6px; }
-  .field.is-error .input, .field.is-error .select { border-color: #b3261e; }
-  .field.is-error .err { display: block; }
-  .submit { width: 100%; margin-top: 4px; }
-  .alt { font-size: .9rem; color: var(--muted); text-align: center; margin-top: 16px; }
-  .alt a { color: var(--blue); font-weight: 600; }
-  .success { display: none; text-align: center; padding: 32px 0; }
-  .success-title { font-size: 1.3rem; font-weight: 700; color: var(--navy); }
-  .contact-points { list-style: none; display: grid; gap: 14px; margin-top: 32px; }
-  .contact-points li { display: flex; gap: 12px; align-items: center; color: var(--white); font-weight: 500; }
-  .contact-points .ck { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--green); display: grid; place-items: center; }
-
-  /* ---------- Footer ---------- */
-  .footer { background: var(--navy-900); color: rgba(255,255,255,.65); padding: 56px 0 40px; font-size: .9rem; }
-  .footer-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px; padding-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,.1); }
-  .footer .logo { filter: brightness(0) invert(1); opacity: .95; }
-  .footer-nav { display: flex; flex-wrap: wrap; gap: 26px; }
-  .footer-nav a { text-decoration: none; color: rgba(255,255,255,.8); }
-  .footer-nav a:hover { color: var(--green); }
-  .footer-bottom { padding-top: 26px; text-align: center; }
-
-  /* ---------- Mobile sticky bar ---------- */
-  .mbar {
-    position: fixed; left: 0; right: 0; bottom: 0; z-index: 80; display: none;
-    padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
-    background: var(--white); box-shadow: 0 -6px 20px rgba(15,37,71,.14);
-    transform: translateY(110%); transition: transform .25s ease;
-  }
-  .mbar.is-on { transform: translateY(0); }
-  .mbar .btn { width: 100%; }
-
-  /* reveal on scroll */
-  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
-  .reveal.in { opacity: 1; transform: none; }
-
-  /* ---------- Responsive ---------- */
-  @media (max-width: 1080px) {
-    .boxes--5 { grid-template-columns: repeat(3, minmax(0,1fr)); }
-    .boxes--4 { grid-template-columns: repeat(2, minmax(0,1fr)); }
-    .nav { display: none; }
-  }
-  @media (max-width: 900px) {
-    .section { padding: 64px 0; }
-    .hero { padding-top: 56px; }
-    .hero-grid, .split, .tbyb-head, .form-wrap { grid-template-columns: minmax(0,1fr); gap: 40px; }
-    .mock-stack { height: 340px; max-width: 520px; }
-    .boxes--3 { grid-template-columns: repeat(2, minmax(0,1fr)); }
-    .result { grid-template-columns: minmax(0,1fr); gap: 18px; padding: 32px 28px; }
-    .trust-strip .container { grid-template-columns: repeat(2, 1fr); }
-    .trust-item:nth-child(2) { border-right: 0; }
-    .trust-item:nth-child(-n+2) { border-bottom: 1px solid rgba(255,255,255,.12); }
-    .mbar { display: block; }
-    .footer { padding-bottom: 96px; }
-    .topbar .hide-sm { display: none; }
-  }
-  @media (max-width: 600px) {
-    .container { padding: 0 16px; }
-    .header .container { min-height: 66px; }
-    .logo { height: 30px; }
-    .header .btn { display: none; }
-    .boxes--5, .boxes--4, .boxes--3, .channel-list, .fgrid { grid-template-columns: minmax(0,1fr); }
-    .mock-stack { height: 280px; }
-    .badge { right: 0; bottom: 8px; }
-    .btn-row .btn { width: 100%; white-space: normal; text-align: center; }
-    .form-card, .ai-card { padding: 28px 20px; }
-    .ai-card { margin-top: 20px; }
-    .topbar .container { justify-content: center; }
-  }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/page.css">
 </head>
 <body>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-  <symbol id="xmark" viewBox="0 0 24 24"><path d="M7 7l10 10M17 7L7 17" fill="none" stroke="#ff6159" stroke-width="2.4" stroke-linecap="round"/></symbol>
-  <symbol id="check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#0f2547" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-</svg>
-
-<!-- ===================== TOP BAR + HEADER ===================== -->
-<div class="topbar">
-  <div class="container">
-    <span class="hide-sm">Custom Web Design + Digital Marketing &bull; Since 1997</span>
-    <span class="sep hide-sm">|</span>
-    <span>Call or text us! <a href="tel:+17039287309">(703) 928-7309</a></span>
+<div class="sf-util sf-scope">
+  <div class="sf-wrap">
+    <a class="sf-util__req" href="https://www.imageworkscreative.com/support-request">Service Request</a>
+    <span class="sf-util__sep" aria-hidden="true">|</span>
+    <a href="tel:+17039287309">Call or text! <b>(703) 928-7309</b></a>
   </div>
 </div>
 
-<header class="header">
-  <div class="container">
-    <a href="#top" aria-label="ImageWorks Creative home"><img class="logo" src="data:image/webp;base64,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" alt="ImageWorks Creative"></a>
-    <nav class="nav" aria-label="Main">
-      <a href="#ai">How We Use AI</a>
-      <a href="#tbyb">Try Before You Buy</a>
-      <a href="#marketing">Marketing</a>
-      <a href="#why">Why ImageWorks</a>
+<header class="sf-nav sf-scope" id="sf-nav">
+  <div class="sf-wrap">
+    <a class="sf-nav__logo" href="https://www.imageworkscreative.com/" aria-label="ImageWorks Creative home"><img src="assets/img/logo-color.webp" alt="ImageWorks Creative" width="317" height="80"></a>
+    <nav aria-label="Main">
+      <ul class="sf-menu" id="sf-menu">
+        <li class="sf-menu__item">
+          <button class="sf-menu__link" type="button" aria-expanded="false">Web</button>
+          <ul class="sf-dropdown">
+            <li class="sf-dropdown__group">Website Design</li>
+            <li><a href="#" aria-current="page">Custom Website Design<small>Drupal / WordPress</small></a></li>
+            <li><a href="https://www.imageworkscreative.com/web-design-services/ai-intelligence-human-expertise">AI Website Design<small>Fast &amp; affordable</small></a></li>
+            <li><a href="https://www.imageworkscreative.com/fix-my-homepage">Homepage Facelift<small>Low cost · major impact</small></a></li>
+            <li class="sf-dropdown__group">Website Services</li>
+            <li><a href="https://www.imageworkscreative.com/web-design-services/ai-intelligence-human-expertise">Website Content<small>AI &amp; SEO ready</small></a></li>
+            <li><a href="https://www.imageworkscreative.com/web-design-services/website-evolution-plan">Website Support &amp; Evolution<small>Essential</small></a></li>
+            <li><a href="https://www.imageworkscreative.com/web-design-services/website-maintenance-plans">Website Maintenance<small>Drupal &amp; WordPress</small></a></li>
+          </ul>
+        </li>
+        <li class="sf-menu__item">
+          <button class="sf-menu__link" type="button" aria-expanded="false">Marketing</button>
+          <ul class="sf-dropdown">
+            <li class="sf-dropdown__group">AI, SEO &amp; Maps</li>
+            <li><a href="https://www.imageworkscreative.com/digital-marketing-services/seo-setup">SEO &amp; AI Search Setup</a></li>
+            <li><a href="https://imageworksc.github.io/search-funnels/">Search Funnels<small>Google + AI</small></a></li>
+            <li><a href="https://www.imageworkscreative.com/seo-aio-blog-writing">SEO/AIO Blogging<small>Traffic + links</small></a></li>
+            <li><a href="https://www.imageworkscreative.com/digital-marketing-services/gbp-maps-optimization">Google Maps Optimization<small>Rank locally</small></a></li>
+            <li class="sf-dropdown__group">PPC &amp; Social</li>
+            <li><a href="https://www.imageworkscreative.com/digital-marketing/google-ads-ppc-management-plans">Google &amp; Meta Ads</a></li>
+            <li><a href="https://www.imageworkscreative.com/digital-marketing-services/social-media-plan">Social Media Reels &amp; Ads</a></li>
+          </ul>
+        </li>
+        <li class="sf-menu__item"><a class="sf-menu__link" href="https://www.imageworkscreative.com/design-branding/branding-services">Branding</a></li>
+        <li class="sf-menu__item"><a class="sf-menu__link" href="https://www.imageworkscreative.com/marketing-plans">Plans</a></li>
+        <li class="sf-menu__item"><a class="sf-menu__link" href="https://www.imageworkscreative.com/portfolio">Portfolio</a></li>
+        <li class="sf-menu__item">
+          <button class="sf-menu__link" type="button" aria-expanded="false">About</button>
+          <ul class="sf-dropdown">
+            <li><a href="https://www.imageworkscreative.com/about-us">About Us</a></li>
+            <li><a href="https://www.imageworkscreative.com/resource-lounge">Customer's Lounge</a></li>
+            <li><a href="https://www.imageworkscreative.com/blog">Blog</a></li>
+            <li><a href="https://www.imageworkscreative.com/start-a-project">Contact</a></li>
+          </ul>
+        </li>
+        <li class="sf-menu__item sf-menu__item--cta"><a class="sf-btn sf-btn--green sf-menu__cta" href="#sf-form">Book a Call</a></li>
+      </ul>
     </nav>
-    <a class="btn btn--green" href="#contact">Book a Call <svg class="arrow"><use href="#arrow"/></svg></a>
+    <button class="sf-burger" type="button" aria-label="Open menu" aria-controls="sf-menu" aria-expanded="false"><span></span></button>
   </div>
 </header>
+<div class="sf-scrim" aria-hidden="true"></div>
 
-<main id="top">
+<div class="field field--name-field-html-code">
+<main id="sf-main" class="sf-scope html-wrapper">
 
-  <!-- ===================== HERO ===================== -->
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <p class="eyebrow">Custom Web Design + Digital Marketing</p>
-        <h1 class="h1">We Make Websites Better. <strong><span class="rise">A</span> <span class="rise">Lot</span> <span class="rise">Better.</span></strong></h1>
-        <p class="lead">We help businesses transform outdated, ineffective, or poorly designed websites into <strong>beautiful, custom-designed websites</strong> that impress customers and leave a lasting impression.</p>
-        <p class="hero-sub"><strong>No templates. No AI-generated websites.</strong> Every website is designed around your brand, your business, and your customers.</p>
-        <div class="btn-row" id="hero-cta">
-          <a class="btn btn--green" href="#contact">Book a Call <svg class="arrow"><use href="#arrow"/></svg></a>
-          <a class="btn btn--line-light hero-tbyb" href="#tbyb">See If You Qualify for&nbsp;<strong>Try Before You Buy</strong></a>
-        </div>
-        <p class="btn-note">Book a call to discuss your website.</p>
-      </div>
-
-      <div class="mock-stack" aria-hidden="true">
-        <div class="mock mock--a">
-          <div class="mock-bar"><i></i><i></i><i></i></div>
-          <div class="mock-body">
-            <div class="mk mk-hero"></div>
-            <div class="mk mk-line w60"></div>
-            <div class="mk mk-line w40"></div>
-            <div class="mk-row"><div class="mk"></div><div class="mk"></div><div class="mk"></div></div>
-          </div>
-        </div>
-        <div class="mock mock--b">
-          <div class="mock-bar"><i></i><i></i><i></i></div>
-          <div class="mock-body">
-            <div class="mk mk-hero"></div>
-            <div class="mk mk-line w60"></div>
-            <div class="mk-btn"></div>
-          </div>
-        </div>
-        <div class="badge"><div><b>100%</b>of Try Before You Buy<br>clients moved forward</div></div>
-      </div>
+  <!-- Hero -->
+  <section class="sf-hero" aria-labelledby="sf-hero-title">
+    <div class="sf-hero__wash" aria-hidden="true">
+      <span class="sf-hero__wash-g"></span>
+      <span class="sf-hero__wash-b"></span>
+      <span class="sf-hero__wash-s"></span>
     </div>
+    <div class="sf-wrap">
+      <div class="sf-hero__grid">
+        <div class="sf-hero__main">
+          <h1 class="sf-hero__title" id="sf-hero-title">We Make Websites Better. <span class="sf-hero__accent"><span class="sf-rise">A</span> <span class="sf-rise">Lot</span> <span class="sf-rise">Better.</span></span></h1>
+          <p class="sf-hero__def">We help businesses transform outdated, ineffective, or poorly designed websites into <strong>beautiful, custom-designed websites</strong> that impress customers and leave a lasting impression.</p>
+          <p class="sf-hero__sub"><strong>No templates. No AI-generated websites.</strong> Every website is designed around your brand, your business, and your customers.</p>
+          <div class="sf-hero__ctas" id="sf-hero-cta">
+            <a class="sf-btn sf-btn--green" href="#sf-form">Book a Call <span class="sf-btn__arrow" aria-hidden="true">→</span></a>
+            <a class="sf-btn sf-btn--quiet" href="#sf-tbyb"><span>See If You Qualify for <b>Try Before You Buy</b></span></a>
+          </div>
+          <p class="sf-trust">Award-Winning Agency &bull; Serving Businesses Nationwide Since 1997</p>
+        </div>
 
-    <div class="trust-strip">
-      <div class="container">
-        <div class="trust-item"><b>1997</b><span>Serving businesses since</span></div>
-        <div class="trust-item"><b>~30 yrs</b><span>Of experience</span></div>
-        <div class="trust-item"><b>Award-Winning</b><span>Full-service agency</span></div>
-        <div class="trust-item"><b>Nationwide</b><span>Clients across the U.S.</span></div>
+        <!-- Visual summary (decorative), same panel as the Search Funnels hero -->
+        <div class="sf-funnel" aria-hidden="true">
+          <p class="sf-funnel__label">Your Website, Made Better</p>
+          <p class="sf-panel__old">Dated design &middot; weak content &middot; looks like a hundred others</p>
+          <ul class="sf-panel__list">
+            <li>Beautiful design</li>
+            <li>Stronger content</li>
+            <li>Smarter navigation</li>
+            <li>Better mobile experiences</li>
+            <li>Clear calls to action</li>
+          </ul>
+          <div class="sf-funnel__stats">
+            <span class="sf-funnel__stat"><b>1997</b>Founded</span>
+            <span class="sf-funnel__stat"><b>≈30</b>Years</span>
+            <span class="sf-funnel__stat"><b>100<em>%</em></b>Moved forward</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ===================== HOW WE USE AI ===================== -->
-  <section class="section section--soft" id="ai">
-    <div class="container split">
-      <div class="reveal">
-        <p class="eyebrow">Our Process</p>
-        <h2 class="h2"><strong>How We Use AI.</strong><br>Where it makes sense.</h2>
-        <p class="p">We use AI where it makes sense&mdash;for research, planning, and wireframes&mdash;then our experienced designers and developers take it further, creating something uniquely yours.</p>
-        <p class="p">And we back it all up with the right marketing strategies to bring customers to your website and help turn visits into business.</p>
-      </div>
-      <div class="ai-card reveal">
-        <div class="spark">
-          <svg width="34" height="34" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-            <path d="M17 10 C18.68 22.32 18.68 22.32 31 24 C18.68 25.68 18.68 25.68 17 38 C15.32 25.68 15.32 25.68 3 24 C15.32 22.32 15.32 22.32 17 10Z" fill="#ffffff"/>
-            <path d="M32 3 C32.84 9.16 32.84 9.16 39 10 C32.84 10.84 32.84 10.84 32 17 C31.16 10.84 31.16 10.84 25 10 C31.16 9.16 31.16 9.16 32 3Z" fill="#80C34A"/>
-          </svg>
+  <!-- How we use AI -->
+  <section class="sf-band sf-band--tint" id="sf-ai">
+    <div class="sf-wrap">
+      <div class="sf-note sf-note--lead sf-reveal">
+        <svg class="sf-spark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <path d="M17 10 C18.68 22.32 18.68 22.32 31 24 C18.68 25.68 18.68 25.68 17 38 C15.32 25.68 15.32 25.68 3 24 C15.32 22.32 15.32 22.32 17 10Z" fill="#143c66"/>
+          <path d="M32 3 C32.84 9.16 32.84 9.16 39 10 C32.84 10.84 32.84 10.84 32 17 C31.16 10.84 31.16 10.84 25 10 C31.16 9.16 31.16 9.16 32 3Z" fill="#80C34A"/>
+        </svg>
+        <div>
+          <h2 class="sf-sec-title">How We Use AI</h2>
+          <p class="sf-lead">We use AI where it makes sense&mdash;for research, planning, and wireframes&mdash;then our experienced designers and developers take it further, creating something uniquely yours.</p>
+          <p class="sf-lead sf-lead--muted">And we back it all up with the right marketing strategies to bring customers to your website and help turn visits into business.</p>
         </div>
-        <h3 class="h3" style="margin-top:18px">AI accelerates. People create.</h3>
-        <ul class="ai-steps">
-          <li><span class="dot">AI</span>Research</li>
-          <li><span class="dot">AI</span>Planning</li>
-          <li><span class="dot">AI</span>Wireframes</li>
-          <li><span class="dot dot--navy">&#9733;</span>Experienced designers &amp; developers</li>
-          <li><span class="dot dot--navy">&#9733;</span>Marketing that brings customers in</li>
+      </div>
+    </div>
+  </section>
+
+  <!-- Your business deserves -->
+  <section class="sf-band sf-steps" id="sf-better">
+    <div class="sf-wrap">
+      <div class="sf-steps__grid">
+        <div class="sf-steps__intro sf-reveal">
+          <h2 class="sf-sec-title">Your Business Deserves a Website That Stands Out.</h2>
+          <p class="sf-lead sf-lead--muted">Your business may have changed considerably since your website was built. Maybe the design feels dated, the content is weak, or the entire experience looks like a hundred other websites.</p>
+          <div class="sf-steps__total">
+            <p>We make it better. From the first impression to the final click.</p>
+          </div>
+        </div>
+
+        <div class="sf-reveal">
+          <ul class="sf-cards">
+            <li class="sf-card"><span class="sf-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20l1-4L16.5 4.5a2.1 2.1 0 0 1 3 3L8 19l-4 1z"/><path d="M14.5 6.5l3 3"/></svg></span><h3 class="sf-card__title">Beautiful design.</h3></li>
+            <li class="sf-card"><span class="sf-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/></svg></span><h3 class="sf-card__title">Stronger content.</h3></li>
+            <li class="sf-card"><span class="sf-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.6 8.4-2 5.2-5.2 2 2-5.2z"/></svg></span><h3 class="sf-card__title">Smarter navigation.</h3></li>
+            <li class="sf-card"><span class="sf-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M10.8 18h2.4"/></svg></span><h3 class="sf-card__title">Better mobile experiences.</h3></li>
+            <li class="sf-card"><span class="sf-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3.5l12 7.3-5.6 1.4 3.1 5.4-2.5 1.4-3.1-5.4-3.9 3.7z"/></svg></span><h3 class="sf-card__title">Clear calls to action.</h3></li>
+          </ul>
+          <p class="sf-lead sf-after">Everything works together to create a website that looks impressive, is easy to use, and gives customers a reason to choose you.</p>
+          <div class="sf-actions">
+            <a class="sf-btn sf-btn--green" href="#sf-form">Book a Call <span class="sf-btn__arrow" aria-hidden="true">→</span></a>
+            <span class="sf-aside">to discuss your website</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI is a great tool -->
+  <section class="sf-band sf-band--tint" id="sf-tool">
+    <div class="sf-wrap">
+      <div class="sf-head sf-reveal">
+        <h2 class="sf-sec-title">AI Is a Great Tool. It's Not a Designer, an Art Director, or a UX Expert.</h2>
+        <p class="sf-lead sf-lead--muted">We embrace AI. Just not as a substitute for professional web design.</p>
+      </div>
+
+      <div class="sf-tree sf-reveal">
+        <div class="sf-split">
+          <div>
+            <p>Our UX experts use AI to accelerate research, planning, and wireframing. Then our designers take those foundations and create a completely custom website around your brand.</p>
+            <p class="sf-tree__result">The result is <span class="sf-uline">the best of both worlds</span>: the efficiency of modern technology and the creativity, judgment, and attention to detail of experienced professionals.</p>
+          </div>
+          <div>
+            <p class="sf-no__label">What you won't get</p>
+            <ul class="sf-no">
+              <li>No cookie-cutter designs.</li>
+              <li>No one-click websites.</li>
+              <li>No generic AI output passed off as custom creative.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Try Before You Buy -->
+  <section class="sf-band sf-steps" id="sf-tbyb">
+    <div class="sf-wrap">
+      <div class="sf-steps__grid">
+        <div class="sf-steps__intro sf-reveal">
+          <h2 class="sf-sec-title">Want to See What We Could Do? <span class="sf-accent">Try Before You Buy.</span></h2>
+          <p class="sf-lead sf-lead--muted">For select businesses, we offer something most agencies won't.</p>
+          <p class="sf-statement">We'll create a custom homepage design and rewrite the homepage content before you commit to purchasing the work.</p>
+          <div class="sf-steps__total">
+            <b>100%</b>
+            <p>So far, 100% of businesses that have gone through Try Before You Buy have chosen to move forward.</p>
+          </div>
+        </div>
+
+        <div class="sf-reveal">
+          <p class="sf-lead" style="margin-bottom:20px">This isn't a quick AI mockup. Our team invests substantial time developing a real creative direction for your business. <strong style="color:var(--sf-navy)">Here's the arrangement:</strong></p>
+          <div class="sf-steps__list">
+            <details class="sf-step" name="steps" open>
+              <summary class="sf-step__head">
+                <span class="sf-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg></span>
+                <h3 class="sf-step__title"><span class="sf-step__num">Step 1</span>We qualify each project.</h3>
+              </summary>
+              <div class="sf-step__body"><p>This offer is reserved for serious businesses that are a good fit for our team. We agree on the project and pricing up front.</p></div>
+            </details>
+            <details class="sf-step" name="steps">
+              <summary class="sf-step__head">
+                <span class="sf-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></span>
+                <h3 class="sf-step__title"><span class="sf-step__num">Step 2</span>We learn your business.</h3>
+              </summary>
+              <div class="sf-step__body"><p>We learn more about your business and your industry.</p></div>
+            </details>
+            <details class="sf-step" name="steps">
+              <summary class="sf-step__head">
+                <span class="sf-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></span>
+                <h3 class="sf-step__title"><span class="sf-step__num">Step 3</span>We write intent-based content and navigation.</h3>
+              </summary>
+              <div class="sf-step__body"><p>It speaks to your customers first, and it's structured to rank in AI Search and Google.</p></div>
+            </details>
+            <details class="sf-step" name="steps">
+              <summary class="sf-step__head">
+                <span class="sf-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 9h18M9 9v11"/></svg></span>
+                <h3 class="sf-step__title"><span class="sf-step__num">Step 4</span>We build the wireframe.</h3>
+              </summary>
+              <div class="sf-step__body"><p>We use our advanced AI tools and our own homepage standards: what content belongs on a homepage, what doesn't, and the order it should go in.</p></div>
+            </details>
+            <details class="sf-step" name="steps">
+              <summary class="sf-step__head">
+                <span class="sf-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20l1-4L16.5 4.5a2.1 2.1 0 0 1 3 3L8 19l-4 1z"/><path d="M14.5 6.5l3 3"/></svg></span>
+                <h3 class="sf-step__title"><span class="sf-step__num">Step 5</span>We add the custom design.</h3>
+              </summary>
+              <div class="sf-step__body"><p>Our designers make it your own unique brand. This is where the custom design polish comes in.</p></div>
+            </details>
+            <details class="sf-step" name="steps">
+              <summary class="sf-step__head">
+                <span class="sf-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span>
+                <h3 class="sf-step__title"><span class="sf-step__num">Step 6</span>We present it. You decide.</h3>
+              </summary>
+              <div class="sf-step__body"><p>If you love the work, you move forward with the agreed purchase. If you don't, you can decline.</p></div>
+            </details>
+          </div>
+
+          <p class="sf-lead sf-after">It's our way of showing you what we can do instead of just telling you.</p>
+          <div class="sf-actions">
+            <a class="sf-btn sf-btn--green" href="#sf-form" data-interest="Try Before You Buy">Apply for Try Before You Buy <span class="sf-btn__arrow" aria-hidden="true">→</span></a>
+          </div>
+          <p class="sf-note-small">Limited availability. Qualification required.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Build a website worth marketing -->
+  <section class="sf-band sf-band--tint" id="sf-marketing">
+    <div class="sf-wrap">
+      <div class="sf-head sf-reveal">
+        <h2 class="sf-sec-title">Build a Website Worth Marketing. Then Get the Word Out.</h2>
+        <p class="sf-lead sf-lead--muted">We believe a strong brand and an impressive website should come before a major investment in marketing.</p>
+        <p class="sf-lead sf-lead--muted">Why? Because whether someone finds you on Google, through an advertisement, on social media, or through an AI recommendation, they're likely to visit your website before making a decision.</p>
+      </div>
+
+      <div class="sf-tree sf-reveal">
+        <p class="sf-tree__pillar"><small>Where every path leads</small>Your Website</p>
+        <ul class="sf-tree__branches sf-tree__branches--four" aria-label="Ways people find your business">
+          <li class="sf-tree__branch"><span class="sf-tree__page">Google</span></li>
+          <li class="sf-tree__branch"><span class="sf-tree__page">An advertisement</span></li>
+          <li class="sf-tree__branch"><span class="sf-tree__page">Social media</span></li>
+          <li class="sf-tree__branch"><span class="sf-tree__page">An AI recommendation</span></li>
         </ul>
+        <p class="sf-tree__result"><span class="sf-uline">What they see when they arrive matters.</span></p>
+        <p class="sf-tree__after">That's why we start by getting your website right, while planning how your marketing will support it.</p>
       </div>
     </div>
   </section>
 
-  <!-- ===================== YOUR BUSINESS DESERVES ===================== -->
-  <section class="section">
-    <div class="container">
-      <div class="center reveal">
-        <p class="eyebrow">Stand Out</p>
-        <h2 class="h2"><strong>Your Business Deserves</strong><br>a Website That Stands Out.</h2>
-        <p class="lead">Your business may have changed considerably since your website was built. Maybe the design feels dated, the content is weak, or the entire experience looks like a hundred other websites.</p>
-        <p class="statement" style="margin:24px auto 0">We make it better. From the first impression to the final click.</p>
+  <!-- The right marketing -->
+  <section class="sf-band" id="sf-capabilities">
+    <div class="sf-wrap">
+      <div class="sf-head sf-reveal">
+        <h2 class="sf-sec-title">The Right Marketing. Not Every Marketing Service.</h2>
+        <p class="sf-lead sf-lead--muted">Different businesses need different strategies. We help you figure out which ones are worth your investment. Our capabilities include:</p>
       </div>
 
-      <div class="boxes boxes--5">
-        <div class="box reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1-4L16.5 4.5a2.1 2.1 0 0 1 3 3L8 19l-4 1z" stroke="#1e3d71"/><path d="M14.5 6.5l3 3" stroke="#5c9a2e"/></svg></div><span class="title">Beautiful design.</span></div>
-        <div class="box reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8.5L19 7.5V21H6z" stroke="#1e3d71"/><path d="M9 12h7M9 16h7" stroke="#5c9a2e"/></svg></div><span class="title">Stronger content.</span></div>
-        <div class="box reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9" stroke="#1e3d71"/><path d="M15.6 8.4l-2 5.2-5.2 2 2-5.2z" stroke="#5c9a2e"/></svg></div><span class="title">Smarter navigation.</span></div>
-        <div class="box reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.2" stroke="#1e3d71"/><path d="M10.8 18h2.4" stroke="#5c9a2e"/></svg></div><span class="title">Better mobile experiences.</span></div>
-        <div class="box reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3.5l12 7.3-5.6 1.4 3.1 5.4-2.5 1.4-3.1-5.4-3.9 3.7z" stroke="#1e3d71"/><path d="M17 4.5l1.3-1.3M20 8h1.8M14 3V1.2" stroke="#5c9a2e"/></svg></div><span class="title">Clear calls to action.</span></div>
-      </div>
-
-      <div class="center reveal" style="margin-top:48px">
-        <p class="p">Everything works together to create a website that looks impressive, is easy to use, and gives customers a reason to choose you.</p>
-        <div class="btn-row" style="justify-content:center"><a class="btn btn--green" href="#contact">Book a Call <svg class="arrow"><use href="#arrow"/></svg></a></div>
-        <p class="btn-note">to discuss your website</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== AI IS A GREAT TOOL ===================== -->
-  <section class="section section--navy">
-    <div class="container split">
-      <div class="reveal">
-        <p class="eyebrow">Human-Led Design</p>
-        <h2 class="h2"><strong>AI Is a Great Tool.</strong><br>It's Not a Designer, an Art Director, or a UX Expert.</h2>
-        <p class="p">We embrace AI. Just not as a substitute for professional web design.</p>
-        <p class="p">Our UX experts use AI to accelerate research, planning, and wireframing. Then our designers take those foundations and create a completely custom website around your brand.</p>
-        <p class="p">The result is the best of both worlds: <strong>the efficiency of modern technology</strong> and <strong>the creativity, judgment, and attention to detail</strong> of experienced professionals.</p>
-      </div>
-      <ul class="no-list reveal">
-        <li><span class="x"><svg width="16" height="16"><use href="#xmark"/></svg></span>No cookie-cutter designs.</li>
-        <li><span class="x"><svg width="16" height="16"><use href="#xmark"/></svg></span>No one-click websites.</li>
-        <li><span class="x"><svg width="16" height="16"><use href="#xmark"/></svg></span>No generic AI output passed off as custom creative.</li>
+      <ul class="sf-caps sf-reveal">
+        <li class="sf-card"><span class="sf-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></span><div><h3 class="sf-card__title">Google Search &amp; SEO</h3><p class="sf-card__text">Helping customers find your business.</p></div></li>
+        <li class="sf-card"><span class="sf-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></span><div><h3 class="sf-card__title">Google Maps &amp; Local SEO</h3><p class="sf-card__text">Strengthening your visibility in the communities you serve.</p></div></li>
+        <li class="sf-card"><span class="sf-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10 5c.7 5 .7 5 5.5 6-4.8 1-4.8 1-5.5 6-.7-5-.7-5-5.5-6 4.8-1 4.8-1 5.5-6z"/><path d="M18 2.5c.3 2 .3 2 2.2 2.4-1.9.4-1.9.4-2.2 2.4-.3-2-.3-2-2.2-2.4 1.9-.4 1.9-.4 2.2-2.4z"/></svg></span><div><h3 class="sf-card__title">AI Search Optimization</h3><p class="sf-card__text">Making your business easier to discover and understand through AI-powered search.</p></div></li>
+        <li class="sf-card"><span class="sf-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><div><h3 class="sf-card__title">Google Ads &amp; Paid Social</h3><p class="sf-card__text">Reaching targeted audiences with the right campaigns.</p></div></li>
+        <li class="sf-card"><span class="sf-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg></span><div><h3 class="sf-card__title">Social Media &amp; Content Marketing</h3><p class="sf-card__text">Building awareness and keeping your business visible.</p></div></li>
+        <li class="sf-card"><span class="sf-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg></span><div><h3 class="sf-card__title">Email Marketing</h3><p class="sf-card__text">Staying connected with prospects and existing customers.</p></div></li>
+        <li class="sf-card"><span class="sf-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 6-6"/><path d="M15 8h5v5"/></svg></span><div><h3 class="sf-card__title">Ongoing Optimization</h3><p class="sf-card__text">Testing, measuring, and improving what works.</p></div></li>
+        <li class="sf-card sf-card--dark">
+          <div>
+            <h3 class="sf-card__title">We don't believe in selling everyone the same marketing package.</h3>
+            <p class="sf-card__text">We build the right combination around your business, your customers, and your budget.</p>
+          </div>
+          <a class="sf-btn sf-btn--green" href="#sf-form">Book a Call <span class="sf-btn__arrow" aria-hidden="true">→</span></a>
+        </li>
       </ul>
     </div>
   </section>
 
-  <!-- ===================== TRY BEFORE YOU BUY ===================== -->
-  <section class="section" id="tbyb">
-    <div class="container">
-      <div class="tbyb-head reveal">
-        <div>
-          <p class="eyebrow">Exclusive Offer</p>
-          <h2 class="h2"><strong>Want to See What We Could Do?</strong><br><span class="hl">Try Before You Buy.</span></h2>
-          <p class="p">For select businesses, we offer something most agencies won't.</p>
-          <p class="statement">We'll create a custom homepage design and rewrite the homepage content before you commit to purchasing the work.</p>
-        </div>
-        <div>
-          <p class="p">This isn't a quick AI mockup. Our team invests substantial time developing a real creative direction for your business.</p>
-          <p class="p"><strong>Here's the arrangement:</strong></p>
-        </div>
-      </div>
-
-      <ol class="boxes boxes--3" style="list-style:none">
-        <li class="box step reveal"><span class="num">01</span><span class="title">We qualify each project.</span><p>This offer is reserved for serious businesses that are a good fit for our team. We agree on the project and pricing up front.</p></li>
-        <li class="box step reveal"><span class="num">02</span><span class="title">We learn your business.</span><p>We learn more about your business and your industry.</p></li>
-        <li class="box step reveal"><span class="num">03</span><span class="title">We write intent-based content and navigation.</span><p>It speaks to your customers first, and it's structured to rank in AI Search and Google.</p></li>
-        <li class="box step reveal"><span class="num">04</span><span class="title">We build the wireframe.</span><p>We use our advanced AI tools and our own homepage standards: what content belongs on a homepage, what doesn't, and the order it should go in.</p></li>
-        <li class="box step reveal"><span class="num">05</span><span class="title">We add the custom design.</span><p>Our designers make it your own unique brand. This is where the custom design polish comes in.</p></li>
-        <li class="box step reveal"><span class="num">06</span><span class="title">We present it. You decide.</span><p>If you love the work, you move forward with the agreed purchase. If you don't, you can decline.</p></li>
-      </ol>
-
-      <div class="result reveal">
-        <div class="big">100%</div>
-        <div>
-          <p class="statement">So far, 100% of businesses that have gone through Try Before You Buy have chosen to move forward.</p>
-          <p>It's our way of showing you what we can do instead of just telling you.</p>
-        </div>
-        <div>
-          <a class="btn btn--green" href="#contact" data-interest="Try Before You Buy">Apply for Try Before You Buy <svg class="arrow"><use href="#arrow"/></svg></a>
-          <p class="btn-note">Limited availability. Qualification required.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== BUILD A WEBSITE WORTH MARKETING ===================== -->
-  <section class="section section--soft" id="marketing">
-    <div class="container split split--top">
-      <div class="reveal">
-        <p class="eyebrow">Website First</p>
-        <h2 class="h2"><strong>Build a Website Worth Marketing.</strong><br>Then Get the Word Out.</h2>
-        <p class="p">We believe a strong brand and an impressive website should come before a major investment in marketing.</p>
-        <p class="p">Why? Because whether someone finds you on Google, through an advertisement, on social media, or through an AI recommendation, they're likely to visit your website before making a decision.</p>
-      </div>
-      <div class="reveal">
-        <p class="pull">What they see when they arrive matters.</p>
-        <p class="p">That's why we start by getting your website right, while planning how your marketing will support it.</p>
-        <ul class="channel-list" style="margin-top:24px">
-          <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5c9a2e" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>Google</li>
-          <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5c9a2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l15-6v14L3 13z"/><path d="M7 13v5"/></svg>Advertising</li>
-          <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5c9a2e" stroke-width="2" stroke-linecap="round"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.2 11l7.6-3.8M8.2 13l7.6 3.8"/></svg>Social Media</li>
-          <li><svg width="22" height="22" viewBox="0 0 40 40" fill="#5c9a2e"><path d="M17 10 C18.68 22.32 18.68 22.32 31 24 C18.68 25.68 18.68 25.68 17 38 C15.32 25.68 15.32 25.68 3 24 C15.32 22.32 15.32 22.32 17 10Z"/></svg>AI Recommendations</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== RIGHT MARKETING / CAPABILITIES ===================== -->
-  <section class="section">
-    <div class="container">
-      <div class="center reveal">
-        <p class="eyebrow">Our Capabilities</p>
-        <h2 class="h2"><strong>The Right Marketing.</strong><br>Not Every Marketing Service.</h2>
-        <p class="lead">Different businesses need different strategies. We help you figure out which ones are worth your investment.</p>
-      </div>
-
-      <div class="boxes boxes--4">
-        <div class="box reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7" stroke="#1e3d71"/><path d="M20 20l-4-4" stroke="#5c9a2e"/></svg></div><span class="title">Google Search &amp; SEO</span><p>Helping customers find your business.</p></div>
-        <div class="box reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z" stroke="#1e3d71"/><circle cx="12" cy="9.5" r="2.5" stroke="#5c9a2e"/></svg></div><span class="title">Google Maps &amp; Local SEO</span><p>Strengthening your visibility in the communities you serve.</p></div>
-        <div class="box reveal"><div class="ico"><svg viewBox="0 0 40 40" fill="none"><path d="M17 10 C18.68 22.32 18.68 22.32 31 24 C18.68 25.68 18.68 25.68 17 38 C15.32 25.68 15.32 25.68 3 24 C15.32 22.32 15.32 22.32 17 10Z" fill="#1e3d71"/><path d="M32 3 C32.84 9.16 32.84 9.16 39 10 C32.84 10.84 32.84 10.84 32 17 C31.16 10.84 31.16 10.84 25 10 C31.16 9.16 31.16 9.16 32 3Z" fill="#80C34A"/></svg></div><span class="title">AI Search Optimization</span><p>Making your business easier to discover and understand through AI-powered search.</p></div>
-        <div class="box reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5" stroke="#1e3d71"/><circle cx="12" cy="12" r="4.5" stroke="#1e3d71"/><circle cx="12" cy="12" r="1" stroke="#5c9a2e" stroke-width="2.4"/></svg></div><span class="title">Google Ads &amp; Paid Social</span><p>Reaching targeted audiences with the right campaigns.</p></div>
-        <div class="box reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z" stroke="#1e3d71"/><path d="M8 9h8M8 12h5" stroke="#5c9a2e"/></svg></div><span class="title">Social Media &amp; Content Marketing</span><p>Building awareness and keeping your business visible.</p></div>
-        <div class="box reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#1e3d71"/><path d="M3.5 6.5L12 13l8.5-6.5" stroke="#5c9a2e"/></svg></div><span class="title">Email Marketing</span><p>Staying connected with prospects and existing customers.</p></div>
-        <div class="box reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7" stroke="#1e3d71"/><path d="M3 20h18" stroke="#5c9a2e"/></svg></div><span class="title">Ongoing Optimization</span><p>Testing, measuring, and improving what works.</p></div>
-        <div class="box box--cta reveal">
-          <div>
-            <h3 class="h3">We don't believe in selling everyone the same marketing package.</h3>
-            <p>We build the right combination around your business, your customers, and your budget.</p>
+  <!-- Nearly 30 years -->
+  <section class="sf-band sf-band--tint" id="sf-experience">
+    <div class="sf-wrap">
+      <div class="sf-exp">
+        <div class="sf-reveal">
+          <h2 class="sf-sec-title">Nearly 30 Years of Experience. Not Another Overnight Agency.</h2>
+          <div class="sf-steps__total">
+            <b>1997</b>
+            <p>An award-winning, full-service agency serving businesses nationwide.</p>
           </div>
-          <a class="btn btn--green" href="#contact">Book a Call <svg class="arrow"><use href="#arrow"/></svg></a>
+        </div>
+        <div class="sf-exp__body sf-reveal">
+          <p class="sf-lead">Since 1997, ImageWorks Creative has helped businesses throughout the country improve their websites, branding, and marketing.</p>
+          <p class="sf-lead sf-lead--muted">We're an award-winning, full-service agency with an experienced team of designers, developers, UX specialists, and marketing professionals.</p>
+          <ul class="sf-no">
+            <li>No magic buttons.</li>
+            <li>No overnight-success promises.</li>
+            <li>No one-size-fits-all packages.</li>
+          </ul>
+          <p class="sf-tree__result" style="margin-top:0">Just <span class="sf-uline">experienced people, exceptional creative work</span>, and marketing strategies built around your business.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===================== NEARLY 30 YEARS ===================== -->
-  <section class="section section--soft why" id="why">
-    <div class="container">
-      <div class="center reveal">
-        <p class="eyebrow">Why ImageWorks?</p>
-        <h2 class="h2"><strong>Nearly 30 Years of Experience.</strong><br>Not Another Overnight Agency.</h2>
-        <p class="lead">Since 1997, ImageWorks Creative has helped businesses throughout the country improve their websites, branding, and marketing.</p>
-        <p class="p" style="margin-top:14px">We're an award-winning, full-service agency with an experienced team of designers, developers, UX specialists, and marketing professionals.</p>
-      </div>
+  <!-- Let's talk + form -->
+  <section class="sf-cta sf-cta--form" id="sf-form">
+    <div class="sf-wrap sf-reveal">
+      <h2 class="sf-sec-title sf-cta__title">Let's Talk About Making Your Website and Marketing Better.</h2>
+      <p class="sf-lead">Have a website that needs work? Planning something new? Not sure which marketing strategies make sense?</p>
+      <p class="sf-lead">Tell us a little about your business. We'll discuss what you want to accomplish, where we can help, and whether you might qualify for our Try Before You Buy program.</p>
 
-      <div class="boxes boxes--3" style="max-width:960px;margin-left:auto;margin-right:auto">
-        <div class="box reveal"><div class="ico" style="background:#fdeceb"><svg width="20" height="20"><use href="#xmark"/></svg></div><span class="title">No magic buttons.</span></div>
-        <div class="box reveal"><div class="ico" style="background:#fdeceb"><svg width="20" height="20"><use href="#xmark"/></svg></div><span class="title">No overnight-success promises.</span></div>
-        <div class="box reveal"><div class="ico" style="background:#fdeceb"><svg width="20" height="20"><use href="#xmark"/></svg></div><span class="title">No one-size-fits-all packages.</span></div>
-      </div>
-
-      <p class="statement center reveal" style="margin:48px auto 0">Just experienced people, exceptional creative work, and marketing strategies built around your business.</p>
-    </div>
-  </section>
-
-  <!-- ===================== LET'S TALK + FORM ===================== -->
-  <section class="section section--navy" id="contact">
-    <div class="container form-wrap">
-      <div class="reveal">
-        <p class="eyebrow">Let's Talk</p>
-        <h2 class="h2"><strong>Let's Talk About Making</strong> Your Website and Marketing Better.</h2>
-        <p class="p">Have a website that needs work? Planning something new? Not sure which marketing strategies make sense?</p>
-        <p class="p">Tell us a little about your business. We'll discuss what you want to accomplish, where we can help, and whether you might qualify for our <strong>Try Before You Buy</strong> program.</p>
-        <ul class="contact-points">
-          <li><span class="ck"><svg width="14" height="14"><use href="#check"/></svg></span>Custom design, never templates</li>
-          <li><span class="ck"><svg width="14" height="14"><use href="#check"/></svg></span>Marketing built around your budget</li>
-          <li><span class="ck"><svg width="14" height="14"><use href="#check"/></svg></span>Serving businesses nationwide since 1997</li>
-        </ul>
-      </div>
-
-      <div class="form-card reveal">
-        <h3 class="h3">Book a Project Call or Apply for a Homepage Preview</h3>
-        <form id="form-el" novalidate>
-          <div class="fgrid">
-            <div class="field">
-              <label class="label" for="f-name">Name</label>
-              <input class="input" type="text" id="f-name" name="name" autocomplete="name" required>
-              <span class="err">Please enter your name.</span>
+      <div class="sf-form">
+        <h3 class="sf-form__title">Book a Project Call or Apply for a Homepage Preview</h3>
+        <form id="sf-form-el" novalidate>
+          <div class="sf-fgrid">
+            <div class="sf-field">
+              <label class="sf-label" for="f-name">Name</label>
+              <input class="sf-input" type="text" id="f-name" name="name" autocomplete="name" required>
+              <span class="sf-err">Please enter your name.</span>
             </div>
-            <div class="field">
-              <label class="label" for="f-business">Business name</label>
-              <input class="input" type="text" id="f-business" name="business" autocomplete="organization" required>
-              <span class="err">Please enter your business name.</span>
+            <div class="sf-field">
+              <label class="sf-label" for="f-business">Business name</label>
+              <input class="sf-input" type="text" id="f-business" name="business" autocomplete="organization" required>
+              <span class="sf-err">Please enter your business name.</span>
             </div>
-            <div class="field">
-              <label class="label" for="f-email">Email</label>
-              <input class="input" type="email" id="f-email" name="email" autocomplete="email" inputmode="email" required>
-              <span class="err">Please enter a valid email address.</span>
+            <div class="sf-field">
+              <label class="sf-label" for="f-email">Email</label>
+              <input class="sf-input" type="email" id="f-email" name="email" autocomplete="email" inputmode="email" required>
+              <span class="sf-err">Please enter a valid email address.</span>
             </div>
-            <div class="field">
-              <label class="label" for="f-phone">Phone</label>
-              <input class="input" type="tel" id="f-phone" name="phone" autocomplete="tel" inputmode="tel" required>
-              <span class="err">Please enter your phone number.</span>
+            <div class="sf-field">
+              <label class="sf-label" for="f-phone">Phone</label>
+              <input class="sf-input" type="tel" id="f-phone" name="phone" autocomplete="tel" inputmode="tel" required>
+              <span class="sf-err">Please enter your phone number.</span>
             </div>
-            <div class="field field--full">
-              <label class="label" for="f-url">Website URL</label>
-              <input class="input" type="url" id="f-url" name="website" autocomplete="url" inputmode="url" autocapitalize="none" required>
-              <span class="err">Please enter your website URL.</span>
+            <div class="sf-field sf-field--full">
+              <label class="sf-label" for="f-url">Website URL</label>
+              <input class="sf-input" type="url" id="f-url" name="website" autocomplete="url" inputmode="url" autocapitalize="none" required>
+              <span class="sf-err">Please enter your website URL.</span>
             </div>
-            <div class="field field--full">
-              <label class="label" for="f-interest">I'm interested in:</label>
-              <select class="select" id="f-interest" name="interest" required>
+            <div class="sf-field sf-field--full">
+              <label class="sf-label" for="f-interest">I'm interested in:</label>
+              <select class="sf-input" id="f-interest" name="interest" required>
                 <option value="" selected disabled>Select one</option>
                 <option>Website Design</option>
                 <option>Website &amp; Marketing</option>
                 <option>Marketing Only</option>
                 <option>Try Before You Buy</option>
               </select>
-              <span class="err">Please choose one.</span>
+              <span class="sf-err">Please choose one.</span>
             </div>
-            <div class="field field--full">
-              <label class="label" for="f-project">Tell us about your project (optional)</label>
-              <textarea class="textarea" id="f-project" name="project"></textarea>
+            <div class="sf-field sf-field--full">
+              <label class="sf-label" for="f-project">Tell us about your project (optional)</label>
+              <textarea class="sf-input" id="f-project" name="project"></textarea>
             </div>
           </div>
-          <button class="btn btn--green submit" type="submit">Request a Project Conversation <svg class="arrow"><use href="#arrow"/></svg></button>
+          <button class="sf-btn sf-btn--green" type="submit">Request a Project Conversation <span class="sf-btn__arrow" aria-hidden="true">→</span></button>
         </form>
-        <div class="success" id="success" role="status" aria-live="polite">
-          <p class="success-title">Thank you. We received your request.</p>
-        </div>
-        <p class="alt">Prefer to choose a time now? <a href="#">Book a Call.</a></p>
+        <p class="sf-success" id="sf-success" role="status" aria-live="polite">Thank you. We received your request.</p>
+        <p class="sf-form__alt">Prefer to choose a time now? <a href="https://www.imageworkscreative.com/start-a-project">Book a Call.</a></p>
       </div>
     </div>
   </section>
 </main>
+</div>
 
-<!-- ===================== FOOTER ===================== -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-top">
-      <img class="logo" src="data:image/webp;base64,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" alt="ImageWorks Creative">
-      <nav class="footer-nav" aria-label="Footer">
-        <a href="#ai">How We Use AI</a>
-        <a href="#tbyb">Try Before You Buy</a>
-        <a href="#marketing">Marketing</a>
-        <a href="#contact">Contact</a>
-        <a href="tel:+17039287309">(703) 928-7309</a>
-      </nav>
+<footer class="sf-footer sf-scope">
+  <div class="sf-wrap">
+    <div class="sf-footer__grid">
+      <div class="sf-footer__brand">
+        <a class="sf-footer__logo" href="https://www.imageworkscreative.com/" aria-label="ImageWorks Creative home"><img src="assets/img/logo-white.webp" alt="ImageWorks Creative" width="226" height="59"></a>
+        <div class="sf-social">
+          <a href="https://www.facebook.com/ImageWorksCreative" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8V6.2c0-.8.2-1.2 1.4-1.2H17V2h-2.6C11.3 2 10.5 3.6 10.5 6v2H8v3h2.5v11H14V11h2.6l.4-3z"/></svg></a>
+          <a href="https://x.com/imageworks" aria-label="X"><svg viewBox="0 0 24 24"><path d="M17.8 3h3.1l-6.8 7.7 8 10.3h-6.3l-4.9-6.4L5.3 21H2.2l7.2-8.3L1.8 3h6.4l4.4 5.8L17.8 3zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5z"/></svg></a>
+          <a href="https://www.linkedin.com/company/imageworks-creative" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3V9.5zm6.5 0h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V21h-4V9.5z"/></svg></a>
+          <a href="https://www.instagram.com/imageworks_creative/" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 3.9 2.4 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.2-9.6a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4z"/></svg></a>
+        </div>
+      </div>
+      <div class="sf-footer__col">
+        <h4 class="sf-footer__heading">Services</h4>
+        <ul class="sf-footer__links">
+          <li><a href="https://www.imageworkscreative.com/custom-web-design">Web Design</a></li>
+          <li><a href="https://www.imageworkscreative.com/web-design-services/ai-intelligence-human-expertise">AI Website Design</a></li>
+          <li><a href="https://www.imageworkscreative.com/digital-marketing-services">Digital Marketing</a></li>
+          <li><a href="https://www.imageworkscreative.com/design-branding/branding-services">Branding</a></li>
+          <li><a href="https://www.imageworkscreative.com/marketing-plans">Website &amp; Marketing Plans</a></li>
+          <li><a href="https://www.imageworkscreative.com/web-design-services/website-maintenance-plans">Website Maintenance</a></li>
+          <li><a href="https://www.imageworkscreative.com/seo-aio-blog-writing">Content Writing</a></li>
+          <li><a href="https://www.imageworkscreative.com/digital-marketing-services/gbp-maps-optimization">Google Maps Optimization</a></li>
+          <li><a href="https://www.imageworkscreative.com/digital-marketing-services/seo-setup">SEO + AIO Optimization</a></li>
+        </ul>
+      </div>
+      <div class="sf-footer__col">
+        <h4 class="sf-footer__heading">Company</h4>
+        <ul class="sf-footer__links">
+          <li><a href="https://www.imageworkscreative.com/portfolio">Our Work</a></li>
+          <li><a href="https://www.imageworkscreative.com/about-us">About</a></li>
+          <li><a href="https://www.imageworkscreative.com/start-a-project">Contact</a></li>
+        </ul>
+      </div>
+      <div class="sf-footer__col">
+        <h4 class="sf-footer__heading">Questions? Quote?</h4>
+        <p class="sf-footer__call">Call or text us: <a href="tel:+17039287309">(703) 928-7309</a></p>
+        <address class="sf-footer__address"><a href="https://maps.app.goo.gl/CqkrHLJthYh79TX76">Ashburn, VA Location</a><br>44679 Endicott Dr Suite 300<br>Unit 580 | Ashburn, VA 20147</address>
+        <address class="sf-footer__address"><a href="https://maps.app.goo.gl/9npaJGDKpJFP1L838">St. Petersburg, FL Location</a><br>433 Central Ave<br>4th floor | St. Petersburg, FL 33701</address>
+      </div>
     </div>
-    <p class="footer-bottom">ImageWorks Creative &mdash; Custom Websites &amp; Digital Marketing Since 1997.</p>
+  </div>
+  <div class="sf-footer__legal">
+    <div class="sf-wrap">
+      <p>© 2026 ImageWorks Creative, a full-service marketing company, branding firm, and web design agency since 1997. All rights reserved.</p>
+      <nav aria-label="Legal"><a href="https://www.imageworkscreative.com/sitemap.xml">Sitemap</a><span aria-hidden="true">|</span><a href="https://www.imageworkscreative.com/content/privacy-policy">Privacy Policy</a></nav>
+    </div>
   </div>
 </footer>
 
-<div class="mbar" id="mbar"><a class="btn btn--green" href="#contact">Book a Call to discuss your website</a></div>
+<!-- phone sticky CTA -->
+<div class="sf-bar sf-scope" id="sf-bar"><a class="sf-btn sf-btn--green" href="#sf-form">Book a Call to discuss your website <span class="sf-btn__arrow" aria-hidden="true">→</span></a></div>
 
-<script>
-(function () {
-  var form = document.getElementById('form-el');
-  var success = document.getElementById('success');
-  var select = document.getElementById('f-interest');
-
-  document.querySelectorAll('[data-interest]').forEach(function (a) {
-    a.addEventListener('click', function () {
-      select.value = a.getAttribute('data-interest');
-      var f = select.closest('.field'); if (f) f.classList.remove('is-error');
-    });
-  });
-
-  function valid(el) {
-    var v = (el.value || '').trim();
-    if (el.type === 'email') return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-    if (el.type === 'tel') return v.replace(/\D/g, '').length >= 7;
-    if (el.type === 'url') return v.length > 3;
-    return v.length > 0;
-  }
-  var req = form.querySelectorAll('[required]');
-  req.forEach(function (el) {
-    function fix() { if (valid(el)) el.closest('.field').classList.remove('is-error'); }
-    el.addEventListener('input', fix); el.addEventListener('change', fix);
-  });
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var first = null;
-    req.forEach(function (el) {
-      var bad = !valid(el);
-      el.closest('.field').classList.toggle('is-error', bad);
-      if (bad && !first) first = el;
-    });
-    if (first) { first.focus(); return; }
-    /* Hook your form handler / CRM here */
-    form.style.display = 'none';
-    success.style.display = 'block';
-  });
-
-  /* Reveal on scroll */
-  var items = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (en) {
-      en.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target); } });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    items.forEach(function (el) { io.observe(el); });
-  } else { items.forEach(function (el) { el.classList.add('in'); }); }
-
-  /* Mobile sticky bar: hidden while hero CTA or form is visible */
-  var bar = document.getElementById('mbar'), hero = document.getElementById('hero-cta'), contact = document.getElementById('contact');
-  if ('IntersectionObserver' in window) {
-    var heroV = true, formV = false;
-    function upd() { bar.classList.toggle('is-on', !heroV && !formV); }
-    new IntersectionObserver(function (e) { heroV = e[0].isIntersecting; upd(); }).observe(hero);
-    new IntersectionObserver(function (e) { formV = e[0].isIntersecting; upd(); }, { threshold: 0.1 }).observe(contact);
-  }
-})();
-</script>
+<script src="js/main.js" defer></script>
+<script src="js/page.js" defer></script>
 </body>
 </html>
