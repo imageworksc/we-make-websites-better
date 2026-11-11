@@ -45,31 +45,37 @@
 .slim-foot > p strong { color: var(--navy); font-weight: 700; }
 .slim-foot .arrow-link { flex: none; }
 
-/* five improvements as one row of quiet tags */
+/* five improvements: open items on one row, split by hairlines, no boxes */
 .tags {
   list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 36px 0 0;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  align-items: center;
+  margin: 32px 0 0;
   padding: 0;
 }
 .tags li {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 10px;
-  padding: 11px 18px 11px 14px;
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--r);
-  font-size: 15px;
+  min-height: 40px;
+  padding: 0 20px;
+  font-size: 16px;
   font-weight: 700;
   line-height: 1.2;
   color: var(--navy);
-  transition: border-color .25s var(--ease), transform .25s var(--ease);
 }
-.tags li:hover { border-color: var(--green); transform: translateY(-2px); }
-.tags svg { width: 18px; height: 18px; flex: none; color: var(--green-ink); }
+.tags li:first-child { padding-left: 0; }
+.tags li + li { border-left: 1px solid var(--border); }
+.tags svg { width: 20px; height: 20px; flex: none; color: var(--green-ink); }
+
+/* closing text with the button underneath it */
+.slim-foot--stack {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+.slim-foot--stack > p { flex: none; }
 
 /* AI -> team: one strip, two short columns */
 .duo {
@@ -247,6 +253,9 @@
 
 /* ---- breakpoints ---- */
 @media (max-width: 1000px) {
+  .tags { grid-template-columns: minmax(0, 1fr); }
+  .tags li, .tags li:first-child { padding: 13px 0; min-height: 0; }
+  .tags li + li { border-left: 0; border-top: 1px solid var(--border); }
   .steps--six .steps-tabs { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .contact { grid-template-columns: minmax(0, 1fr); }
   .team--three { grid-template-columns: minmax(0, 1fr); }
@@ -262,7 +271,6 @@
 @media (max-width: 600px) {
   .duo { grid-template-columns: minmax(0, 1fr); }
   .duo__to { transform: rotate(90deg); }
-  .tags li { flex: 1 1 calc(50% - 10px); }
   .steps--six .steps-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .fgrid { grid-template-columns: minmax(0, 1fr); }
   .btn-row .btn { width: 100%; }
