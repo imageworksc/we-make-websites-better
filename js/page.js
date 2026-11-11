@@ -1,59 +1,86 @@
-/* We Make Websites Better: form validation + phone sticky CTA.
-   script.js (from the AI Website Design page) runs the reveals and the steps. */
-(function () {
+/* ==========================================================================
+   We Make Websites Better · page script
+   1. Form: preselected interest, validation, sent state
+   2. Phone call bar: shown only between the hero and the form
+   script.js (AI Website Design) runs the reveals; chrome.js runs the nav.
+   ========================================================================== */
+
+(() => {
   'use strict';
 
-  var form = document.getElementById('form-el');
-  var ok = document.getElementById('form-ok');
-  var select = document.getElementById('f-interest');
+  /* 1. Form
+     ------------------------------------------------------------------------ */
+  const card = document.querySelector('.form-card');
+  const form = document.getElementById('form-el');
+  const interest = document.getElementById('f-interest');
 
-  /* links that preselect an interest */
-  document.querySelectorAll('[data-interest]').forEach(function (a) {
-    a.addEventListener('click', function () {
-      select.value = a.getAttribute('data-interest');
-      select.closest('.field').classList.remove('is-error');
+  // Links that carry an interest preselect it in the form.
+  document.querySelectorAll('[data-interest]').forEach((link) => {
+    link.addEventListener('click', () => {
+      interest.value = link.dataset.interest;
+      interest.closest('.field').classList.remove('is-error');
     });
   });
 
-  function valid(el) {
-    var v = (el.value || '').trim();
-    if (el.type === 'email') return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-    if (el.type === 'tel') return v.replace(/\D/g, '').length >= 7;
-    if (el.type === 'url') return v.length > 3;
-    return v.length > 0;
-  }
+  const isValid = (field) => {
+    const value = (field.value || '').trim();
+    if (field.type === 'email') return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+    if (field.type === 'tel') return value.replace(/\D/g, '').length >= 7;
+    if (field.type === 'url') return value.length > 3;
+    return value.length > 0;
+  };
 
-  if (form) {
-    var req = form.querySelectorAll('[required]');
-    req.forEach(function (el) {
-      function fix() { if (valid(el)) el.closest('.field').classList.remove('is-error'); }
-      el.addEventListener('input', fix);
-      el.addEventListener('change', fix);
+  if (card && form) {
+    const required = form.querySelectorAll('[required]');
+
+    // A field clears its error as soon as it becomes valid.
+    required.forEach((field) => {
+      const clear = () => {
+        if (isValid(field)) field.closest('.field').classList.remove('is-error');
+      };
+      field.addEventListener('input', clear);
+      field.addEventListener('change', clear);
     });
 
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var first = null;
-      req.forEach(function (el) {
-        var bad = !valid(el);
-        el.closest('.field').classList.toggle('is-error', bad);
-        if (bad && !first) first = el;
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      let firstInvalid = null;
+      required.forEach((field) => {
+        const invalid = !isValid(field);
+        field.closest('.field').classList.toggle('is-error', invalid);
+        if (invalid && !firstInvalid) firstInvalid = field;
       });
-      if (first) { first.focus(); return; }
-      /* Hook your form handler / CRM here */
-      form.style.display = 'none';
-      ok.style.display = 'block';
+
+      if (firstInvalid) {
+        firstInvalid.focus();
+        return;
+      }
+
+      // Hook the form handler / CRM here.
+      card.classList.add('is-sent');
     });
   }
 
-  /* phone sticky bar: hidden while the hero buttons or the form are on screen */
-  var bar = document.getElementById('mbar');
-  var hero = document.getElementById('hero-cta');
-  var contact = document.getElementById('start');
-  if (bar && hero && contact && 'IntersectionObserver' in window) {
-    var heroV = true, formV = false;
-    var update = function () { bar.classList.toggle('is-on', !heroV && !formV); };
-    new IntersectionObserver(function (e) { heroV = e[0].isIntersecting; update(); }).observe(hero);
-    new IntersectionObserver(function (e) { formV = e[0].isIntersecting; update(); }, { threshold: 0.1 }).observe(contact);
+  /* 2. Phone call bar
+     ------------------------------------------------------------------------ */
+  const bar = document.getElementById('mbar');
+  const heroButtons = document.getElementById('hero-cta');
+  const contact = document.getElementById('start');
+
+  if (bar && heroButtons && contact && 'IntersectionObserver' in window) {
+    let heroVisible = true;
+    let formVisible = false;
+    const update = () => bar.classList.toggle('is-on', !heroVisible && !formVisible);
+
+    new IntersectionObserver(([entry]) => {
+      heroVisible = entry.isIntersecting;
+      update();
+    }).observe(heroButtons);
+
+    new IntersectionObserver(([entry]) => {
+      formVisible = entry.isIntersecting;
+      update();
+    }, { threshold: 0.1 }).observe(contact);
   }
 })();

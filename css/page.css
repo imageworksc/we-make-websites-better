@@ -1,19 +1,49 @@
 /* ==========================================================================
-   We Make Websites Better · additions on top of styles.css
-   (the AI Website Design system). Same tokens, same 2px corners, same calm.
-   Only what this page has that the reference does not: a slim header,
-   two slim sections, a six-station process, the form and a footer.
+   We Make Websites Better · page styles
+   Loaded after styles.css (the AI Website Design system) and chrome.css
+   (the Search Funnels header and footer). Same tokens, same 2px corners.
+
+   Sections follow the page, top to bottom:
+     1. Base and text measure
+     2. Hero
+     3. Slim sections (shared head and closing row)
+     4. Your Business Deserves
+     5. AI Is a Great Tool
+     6. Try Before You Buy
+     7. Website Worth Marketing
+     8. Nearly 30 Years
+     9. Contact form
+    10. Phone call bar
+    11. Breakpoints (widest first)
+    12. Large screens (QHD, 4K, 5K)
    ========================================================================== */
+
+
+/* 1. Base and text measure
+   --------------------------------------------------------------------------
+   No line of copy runs past 60% of the content width (the shell minus its
+   gutters, about 660px on a desktop). Narrow columns are already under
+   that, so the cap only bites on full-width copy. */
+:root {
+  --text-60: calc((min(100vw, var(--shell)) - 2 * var(--gutter)) * .6);
+}
 
 [id] { scroll-margin-top: 96px; }
 
-/* ---- hero: one column, the washes carry the right side ---- */
+#main :is(p, .sec-title, .answer-card__title, dt, dd) {
+  max-width: min(var(--text-60), 100%);
+}
+
+
+/* 2. Hero
+   -------------------------------------------------------------------------- */
 .hero h1 { text-wrap: nowrap; }
 .hero .hero-sub { max-width: 60ch; }
 
-/* ---- slim sections: "Your Business Deserves" + "AI Is a Great Tool" ----
-   Shorter bands, the title and its paragraph side by side instead of
-   stacked, and each section closing on one hairline row. */
+
+/* 3. Slim sections
+   --------------------------------------------------------------------------
+   Shorter bands, the title stacked over its paragraph, and a closing row. */
 .band--slim { padding-block: clamp(52px, 6vw, 80px); }
 
 .slim-head {
@@ -43,9 +73,21 @@
   color: var(--muted);
 }
 .slim-foot > p strong { color: var(--navy); font-weight: 700; }
-.slim-foot .arrow-link { flex: none; }
 
-/* five improvements: open items on one row, split by hairlines, no boxes */
+/* the closing text with its button underneath, no rule above */
+.slim-foot--stack {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  padding-top: 0;
+  border-top: 0;
+}
+.slim-foot--stack > p { flex: none; }
+
+
+/* 4. Your Business Deserves
+   --------------------------------------------------------------------------
+   Five improvements on one row, unboxed, split by hairlines. */
 .tags {
   list-style: none;
   display: grid;
@@ -67,19 +109,12 @@
 }
 .tags li:first-child { padding-left: 0; }
 .tags li + li { border-left: 1px solid var(--border); }
-.tags svg { width: 20px; height: 20px; flex: none; color: var(--green-ink); }
+.tags svg { flex: none; width: 20px; height: 20px; color: var(--green-ink); }
 
-/* closing text with the button underneath it */
-.slim-foot--stack {
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 20px;
-  padding-top: 0;
-  border-top: 0;
-}
-.slim-foot--stack > p { flex: none; }
 
-/* AI -> team: one strip, two short columns */
+/* 5. AI Is a Great Tool
+   --------------------------------------------------------------------------
+   AI -> team as one strip, then the three "No" lines on one row. */
 .duo {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
@@ -125,7 +160,6 @@
   color: var(--green-ink);
 }
 
-/* the three "No" lines, small and on one row */
 .nos {
   list-style: none;
   display: flex;
@@ -142,19 +176,12 @@
   font-weight: 700;
   color: var(--navy);
 }
-.nos svg { width: 14px; height: 14px; flex: none; color: var(--danger-ink); }
+.nos svg { flex: none; width: 14px; height: 14px; color: var(--danger-ink); }
 
-/* ---- text measure: no line of copy runs past 60% of the content width ----
-   The content width is the shell minus its gutters; 60% of it is about
-   660px on a desktop. Narrow columns are already under that, so the cap
-   only bites on full-width copy. The two-line hero headline is exempt. */
-:root { --text-60: calc((min(100vw, var(--shell)) - 2 * var(--gutter)) * .6); }
-#main :is(p, .sec-title, .answer-card__title, .steps-title, dt, dd) {
-  max-width: min(var(--text-60), 100%);
-}
 
-/* ---- Try Before You Buy: the offer on the left, the six steps as a quiet
-   numbered list on the right. No cards, no rail, one figure. ---- */
+/* 6. Try Before You Buy
+   --------------------------------------------------------------------------
+   The offer on the left, the six steps as a numbered list on the right. */
 .tbl {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -171,6 +198,8 @@
 }
 .tbl__intro .sec-title { margin: 0; }
 .tbl__intro .lead { margin: 0; font-size: 17px; }
+.tbl__title { max-width: none; }
+
 .tbl__stat {
   display: flex;
   align-items: center;
@@ -188,9 +217,21 @@
   line-height: 1;
   color: var(--green-ink);
 }
-.tbl__cta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; margin-top: 8px; }
 
-.tbl__title { max-width: none; }
+.tbl__cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 16px;
+  margin-top: 8px;
+}
+.btn-note {
+  align-self: center;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--faint);
+}
+
 .tbl__list { list-style: none; margin: 0; padding: 0; }
 .tbl__list li {
   display: grid;
@@ -209,19 +250,20 @@
   color: var(--green-ink);
   font-variant-numeric: tabular-nums;
 }
-#main .tbl__list h3 { margin: 0 0 4px; font-size: 17px; font-weight: 800; line-height: 1.35; letter-spacing: -.2px; color: var(--navy); }
+#main .tbl__list h3 {
+  margin: 0 0 4px;
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: -.2px;
+  color: var(--navy);
+}
 #main .tbl__list p { margin: 0; font-size: 15px; line-height: 1.6; color: var(--muted); }
 
-.btn-note {
-  align-self: center;
-  font-size: 14px;
-  font-style: italic;
-  color: var(--faint);
-}
 
-/* ---- Nearly 30 Years: the three "No" lines sit under the copy, unboxed,
-   and the 1997 card is centred against the column beside it ---- */
-/* the marketing section's closing link, under the left-hand copy */
+/* 7. Website Worth Marketing
+   --------------------------------------------------------------------------
+   The closing link under the left-hand copy. */
 .aside-link { margin: 20px 0 0; }
 .aside-link a {
   display: inline-flex;
@@ -235,9 +277,15 @@
 .aside-link a svg { transition: transform .25s var(--ease); }
 .aside-link a:hover svg { transform: translateX(5px); }
 
+
+/* 8. Nearly 30 Years
+   --------------------------------------------------------------------------
+   The three "No" lines sit under the copy, unboxed, and the 1997 card is
+   centred against the whole left column. */
 .band--exp { padding-block: clamp(52px, 6.4vw, 88px); }
-.exp-rate { align-self: center; }
 .price-copy .sec-title { margin: 0 0 4px; }
+.exp-rate { align-self: center; }
+
 .exp-nos {
   list-style: none;
   display: flex;
@@ -253,7 +301,7 @@
   font-size: 17px;
   font-weight: 700;
   line-height: 1.35;
-  color: #fff;
+  color: var(--white);
 }
 .exp-nos svg {
   flex: none;
@@ -265,7 +313,9 @@
   color: #ff8a80;
 }
 
-/* ---- contact ---- */
+
+/* 9. Contact form
+   -------------------------------------------------------------------------- */
 .contact {
   display: grid;
   grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
@@ -276,11 +326,11 @@
 .contact__copy .sec-title { margin: 0; }
 
 .form-card {
+  padding: clamp(24px, 3.4vw, 40px);
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: var(--r);
   box-shadow: var(--shadow-card);
-  padding: clamp(24px, 3.4vw, 40px);
 }
 .form-card__title {
   margin: 0 0 22px;
@@ -290,6 +340,7 @@
   letter-spacing: -.01em;
   color: var(--navy);
 }
+
 .fgrid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -304,9 +355,7 @@
   font-weight: 700;
   color: var(--navy);
 }
-.field input,
-.field select,
-.field textarea {
+.field :is(input, select, textarea) {
   display: block;
   width: 100%;
   min-height: 50px;
@@ -331,16 +380,36 @@
   background-size: 12px;
 }
 .field textarea { min-height: 110px; resize: vertical; }
-.field :is(input, select, textarea):focus { outline: none; border-color: var(--navy); box-shadow: var(--ring); }
+.field :is(input, select, textarea):focus {
+  outline: none;
+  border-color: var(--navy);
+  box-shadow: var(--ring);
+}
+
 .err { display: none; margin-top: 6px; font-size: 13px; font-weight: 600; color: var(--danger-ink); }
 .field.is-error :is(input, select) { border-color: var(--danger-ink); }
 .field.is-error .err { display: block; }
+
 .form-card__submit { width: 100%; margin-top: 4px; }
-.form-card__ok { display: none; padding: 28px 0; text-align: center; font-size: 20px; font-weight: 800; color: var(--navy); }
+.form-card__ok {
+  display: none;
+  padding: 28px 0;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--navy);
+}
 .form-card__alt { margin: 16px 0 0; text-align: center; font-size: 14px; color: var(--muted); }
 .form-card__alt a { color: var(--blue); font-weight: 700; }
 
-/* ---- phone sticky call ---- */
+/* once sent, the form gives way to the thank-you line (set by page.js) */
+.form-card.is-sent form { display: none; }
+.form-card.is-sent .form-card__ok { display: block; }
+
+
+/* 10. Phone call bar
+   --------------------------------------------------------------------------
+   Hidden while the hero buttons or the form are on screen (page.js). */
 .mbar {
   position: fixed;
   left: 0;
@@ -357,34 +426,16 @@
 .mbar.is-on { transform: none; }
 .mbar .btn { width: 100%; }
 
-/* ---- breakpoints ---- */
+
+/* 11. Breakpoints (widest first)
+   -------------------------------------------------------------------------- */
 @media (max-width: 1000px) {
   .tags { grid-template-columns: minmax(0, 1fr); }
-  .tags li, .tags li:first-child { padding: 13px 0; min-height: 0; }
+  .tags li,
+  .tags li:first-child { min-height: 0; padding: 13px 0; }
   .tags li + li { border-left: 0; border-top: 1px solid var(--border); }
+
   .contact { grid-template-columns: minmax(0, 1fr); }
-}
-
-@media (max-width: 760px) {
-  #main :is(p, .sec-title, .answer-card__title, .steps-title, dt, dd) { max-width: 100%; }
-  .mbar { display: block; }
-  .sf-footer { padding-bottom: 76px; }
-  .hero h1 { font-size: clamp(20px, 6.6vw, 46px); }
-}
-
-@media (max-width: 600px) {
-  /* every call to action spans the column, like the hero's */
-  .slim-foot--stack .btn,
-  .tbl__cta .btn { width: 100%; }
-  /* the services list matches the rest of the page's mobile type */
-  .cms-row { gap: 14px; padding: 18px 18px; }
-  .cms-icon { inline-size: 38px; block-size: 38px; }
-  .cms-body dt { font-size: 17px; }
-  .cms-body dd { font-size: 15.5px; line-height: 1.6; }
-  .duo { grid-template-columns: minmax(0, 1fr); }
-  .duo__to { transform: rotate(90deg); }
-  .fgrid { grid-template-columns: minmax(0, 1fr); }
-  .btn-row .btn { width: 100%; }
 }
 
 @media (max-width: 900px) {
@@ -393,10 +444,37 @@
   .br-d { display: none; }
 }
 
-/* ---- large screens: scale the whole layout (header and footer included)
-   so it keeps its proportions on QHD, 4K (3840px) and 5K (5120px) displays
-   instead of shrinking into a narrow column. Same steps as the Search
-   Funnels page. ---- */
+@media (max-width: 760px) {
+  #main :is(p, .sec-title, .answer-card__title, dt, dd) { max-width: 100%; }
+  .hero h1 { font-size: clamp(20px, 6.6vw, 46px); }
+  .mbar { display: block; }
+  .sf-footer { padding-bottom: 76px; }
+}
+
+@media (max-width: 600px) {
+  /* every call to action spans the column, like the hero's */
+  .btn-row .btn,
+  .slim-foot--stack .btn,
+  .tbl__cta .btn { width: 100%; }
+
+  .duo { grid-template-columns: minmax(0, 1fr); }
+  .duo__to { transform: rotate(90deg); }
+
+  /* the services list matches the rest of the page's mobile type */
+  .cms-row { gap: 14px; padding: 18px; }
+  .cms-icon { inline-size: 38px; block-size: 38px; }
+  .cms-body dt { font-size: 17px; }
+  .cms-body dd { font-size: 15.5px; line-height: 1.6; }
+
+  .fgrid { grid-template-columns: minmax(0, 1fr); }
+}
+
+
+/* 12. Large screens
+   --------------------------------------------------------------------------
+   Scale the whole layout, header and footer included, so it keeps its
+   proportions on QHD, 4K (3840px) and 5K (5120px) displays instead of
+   shrinking into a narrow column. Same steps as the Search Funnels page. */
 @media (min-width: 2200px) { html { zoom: 1.25; } }
 @media (min-width: 2800px) { html { zoom: 1.5; } }
 @media (min-width: 3400px) { html { zoom: 1.85; } }
