@@ -255,10 +255,36 @@
   color: var(--faint);
 }
 
-/* ---- three tiles on the deep band ---- */
-.team--three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.team--three h4 { margin: 0; }
-.chip--x { color: #ff8a80; }
+/* ---- Nearly 30 Years: the three "No" lines sit under the copy, unboxed,
+   and the 1997 card is centred against the column beside it ---- */
+.exp-rate { align-self: center; }
+.price-copy .sec-title { margin: 0 0 4px; }
+.exp-nos {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 8px 0 0;
+  padding: 0;
+}
+.exp-nos li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #fff;
+}
+.exp-nos svg {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  padding: 4px;
+  border-radius: 50%;
+  background: rgba(255, 138, 128, .16);
+  color: #ff8a80;
+}
 
 /* ---- contact ---- */
 .contact {
@@ -358,8 +384,6 @@
   .tags li, .tags li:first-child { padding: 13px 0; min-height: 0; }
   .tags li + li { border-left: 0; border-top: 1px solid var(--border); }
   .contact { grid-template-columns: minmax(0, 1fr); }
-  .team--three { grid-template-columns: minmax(0, 1fr); }
-  .team--three .team-tile + .team-tile { border-left: 0; border-top: 1px solid var(--border); }
 }
 
 @media (max-width: 760px) {
