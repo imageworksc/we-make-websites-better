@@ -142,6 +142,15 @@
 }
 .nos svg { width: 14px; height: 14px; flex: none; color: var(--danger-ink); }
 
+/* ---- text measure: no line of copy runs past 60% of the content width ----
+   The content width is the shell minus its gutters; 60% of it is about
+   660px on a desktop. Narrow columns are already under that, so the cap
+   only bites on full-width copy. The two-line hero headline is exempt. */
+:root { --text-60: calc((min(100vw, var(--shell)) - 2 * var(--gutter)) * .6); }
+#main :is(p, .sec-title, .answer-card__title, .steps-title, dt, dd) {
+  max-width: min(var(--text-60), 100%);
+}
+
 /* ---- six stations instead of four ---- */
 .steps--six .steps-tabs { grid-template-columns: repeat(6, minmax(0, 1fr)); }
 [data-steps][data-ready].steps--six .steps-panel { grid-template-columns: minmax(0, 1fr); }
@@ -263,6 +272,7 @@
 }
 
 @media (max-width: 760px) {
+  #main :is(p, .sec-title, .answer-card__title, .steps-title, dt, dd) { max-width: 100%; }
   .mbar { display: block; }
   .sf-footer { padding-bottom: 76px; }
   .hero h1 { font-size: clamp(20px, 6.6vw, 46px); }
