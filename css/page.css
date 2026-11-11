@@ -373,6 +373,14 @@
 }
 
 @media (max-width: 600px) {
+  /* every call to action spans the column, like the hero's */
+  .slim-foot--stack .btn,
+  .tbl__cta .btn { width: 100%; }
+  /* the services list matches the rest of the page's mobile type */
+  .cms-row { gap: 14px; padding: 18px 18px; }
+  .cms-icon { inline-size: 38px; block-size: 38px; }
+  .cms-body dt { font-size: 17px; }
+  .cms-body dd { font-size: 15.5px; line-height: 1.6; }
   .duo { grid-template-columns: minmax(0, 1fr); }
   .duo__to { transform: rotate(90deg); }
   .fgrid { grid-template-columns: minmax(0, 1fr); }
@@ -384,3 +392,12 @@
   .tbl__intro { position: static; }
   .br-d { display: none; }
 }
+
+/* ---- large screens: scale the whole layout (header and footer included)
+   so it keeps its proportions on QHD, 4K (3840px) and 5K (5120px) displays
+   instead of shrinking into a narrow column. Same steps as the Search
+   Funnels page. ---- */
+@media (min-width: 2200px) { html { zoom: 1.25; } }
+@media (min-width: 2800px) { html { zoom: 1.5; } }
+@media (min-width: 3400px) { html { zoom: 1.85; } }
+@media (min-width: 4400px) { html { zoom: 2.4; } }
