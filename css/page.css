@@ -257,6 +257,7 @@
 
 /* ---- Nearly 30 Years: the three "No" lines sit under the copy, unboxed,
    and the 1997 card is centred against the column beside it ---- */
+.band--exp { padding-block: clamp(52px, 6.4vw, 88px); }
 .exp-rate { align-self: center; }
 .price-copy .sec-title { margin: 0 0 4px; }
 .exp-nos {
