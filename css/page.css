@@ -257,15 +257,19 @@
 
 /* ---- Nearly 30 Years: the three "No" lines sit under the copy, unboxed,
    and the 1997 card is centred against the column beside it ---- */
-/* closing line of the marketing section, left-aligned under the aside copy */
-.quote-rail.aside-rail {
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 12px;
-  margin-top: 24px;
-  text-align: left;
+/* the marketing section's closing link, under the left-hand copy */
+.aside-link { margin: 20px 0 0; }
+.aside-link a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--step-0);
+  font-weight: 800;
+  color: var(--green-ink);
+  text-decoration: none;
 }
+.aside-link a svg { transition: transform .25s var(--ease); }
+.aside-link a:hover svg { transform: translateX(5px); }
 
 .band--exp { padding-block: clamp(52px, 6.4vw, 88px); }
 .exp-rate { align-self: center; }
