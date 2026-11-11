@@ -74,6 +74,8 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 20px;
+  padding-top: 0;
+  border-top: 0;
 }
 .slim-foot--stack > p { flex: none; }
 
