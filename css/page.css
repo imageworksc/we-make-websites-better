@@ -86,17 +86,155 @@
 .slim-foot--stack > p { flex: none; }
 
 
-/* How We Use AI: no card. The first paragraph carries the underlined terms
-   and reads a step stronger; the closing line sits on a green rule. */
+/* How We Use AI: no card. Copy on the left, and on the right the same idea
+   drawn: a grey AI draft, the brand-colour version our team builds over it,
+   and a marketing card turning visits into business. */
+.ai-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(36px, 6vw, 88px);
+  align-items: center;
+}
 #main .ai-lead { color: var(--ink); }
 .ai-close {
   margin: 26px 0 0;
-  padding-left: 18px;
-  border-left: 3px solid var(--green);
   font-size: 18px;
   font-weight: 700;
   line-height: 1.5;
   color: var(--navy);
+}
+
+.ai-viz {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  aspect-ratio: 520 / 400;
+  justify-self: end;
+}
+.ai-viz i,
+.ai-viz b,
+.ai-viz u { display: block; }
+
+/* the two windows */
+.ai-viz__win {
+  position: absolute;
+  width: 74%;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+}
+.ai-viz__win--draft {
+  top: 0;
+  left: 0;
+  box-shadow: var(--shadow-flat);
+}
+.ai-viz__win--final {
+  right: 0;
+  bottom: 12%;
+  box-shadow: var(--shadow-card);
+}
+
+.ai-viz__tag {
+  position: absolute;
+  top: -12px;
+  left: 14px;
+  padding: 4px 10px;
+  border-radius: var(--r);
+  background: var(--grey-soft);
+  color: var(--grey-ink);
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.ai-viz__tag--team { background: var(--green); color: var(--white); }
+
+.ai-viz__bar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border-soft);
+}
+.ai-viz__bar i { width: 7px; height: 7px; border-radius: 50%; background: #d5dde8; }
+
+.ai-viz__page {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px 16px 16px;
+}
+.ai-viz__nav { display: flex; align-items: center; gap: 8px; }
+.ai-viz__nav i { width: 26px; height: 5px; border-radius: 1px; background: #e3e9f1; }
+.ai-viz__line { display: block; height: 9px; border-radius: 1px; background: #e3e9f1; }
+.ai-viz__line--l { width: 78%; }
+.ai-viz__line--m { width: 56%; }
+.ai-viz__tiles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 4px;
+}
+.ai-viz__tiles i {
+  height: 46px;
+  border: 1px dashed #d2dbe7;
+  border-radius: var(--r);
+}
+
+/* the finished page: the same skeleton, in brand colour */
+.ai-viz__win--final .ai-viz__nav b { width: 18px; height: 18px; border-radius: 50%; background: var(--green); }
+.ai-viz__win--final .ai-viz__nav i { background: #c9d6e6; }
+.ai-viz__win--final .ai-viz__nav u { width: 40px; height: 12px; margin-left: auto; border-radius: 1px; background: var(--green); }
+.ai-viz__hero {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 14px;
+  border-radius: var(--r);
+  background: linear-gradient(135deg, var(--blue), var(--navy-deep));
+}
+.ai-viz__hero .ai-viz__line { background: rgba(255, 255, 255, .9); }
+.ai-viz__hero .ai-viz__line--accent { width: 46%; background: var(--green); }
+.ai-viz__btn { display: block; width: 70px; height: 16px; margin-top: 4px; border-radius: var(--r); background: var(--white); }
+.ai-viz__win--final .ai-viz__tiles i {
+  border: 0;
+  border-top: 3px solid var(--green);
+  background: var(--band-tint);
+}
+
+/* marketing: visits into business */
+.ai-viz__mkt {
+  position: absolute;
+  left: 6%;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  box-shadow: var(--shadow-card);
+}
+.ai-viz__mkt-ic {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--chip-green);
+  color: var(--green-ink);
+}
+.ai-viz__mkt-ic svg { width: 18px; height: 18px; }
+.ai-viz__mkt-txt { display: flex; flex-direction: column; font-size: 12px; line-height: 1.35; color: var(--muted); }
+.ai-viz__mkt-txt b { font-size: 13.5px; font-weight: 800; color: var(--navy); }
+.ai-viz__spark { width: 64px; height: 24px; }
+.ai-viz__spark polyline {
+  fill: none;
+  stroke: var(--green);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 
@@ -443,6 +581,9 @@
 /* 11. Breakpoints (widest first)
    -------------------------------------------------------------------------- */
 @media (max-width: 1000px) {
+  .ai-grid { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+  .ai-viz { justify-self: start; }
+
   .contact { grid-template-columns: minmax(0, 1fr); }
 }
 

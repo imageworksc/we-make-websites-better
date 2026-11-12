@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#143c66">
 <link rel="stylesheet" href="css/styles.css?v=1">
 <link rel="stylesheet" href="css/chrome.css?v=1">
-<link rel="stylesheet" href="css/page.css?v=24">
+<link rel="stylesheet" href="css/page.css?v=26">
 </head>
 <body>
 <a class="skip-to-content" href="#main">Skip to content</a>
@@ -113,15 +113,53 @@
     </div>
   </section>
 
-  <!-- 2 · HOW WE USE AI (open section: title, two paragraphs, one closing line; no card) -->
+  <!-- 2 · HOW WE USE AI (copy on the left, a graphic of the same idea on the right) -->
   <section class="band band--tint band--slim" aria-labelledby="ai-title">
-    <div class="wrap reveal">
-      <div class="slim-head">
-        <h2 class="sec-title" id="ai-title">How We Use AI. <em>Where It Makes Sense.</em></h2>
-        <p class="lead ai-lead hl-set">We use AI for <span class="hl">research</span>, <span class="hl">planning</span>, and <span class="hl">wireframes</span> — then our experienced designers and developers take it further, creating something uniquely yours.</p>
-        <p class="lead">And we back it all up with the right marketing strategies to bring customers to your website and help turn visits into business.</p>
+    <div class="wrap ai-grid reveal">
+      <div class="ai-copy">
+        <div class="slim-head">
+          <h2 class="sec-title" id="ai-title">How We Use AI. <em>Where It Makes Sense.</em></h2>
+          <p class="lead ai-lead hl-set">We use AI for <span class="hl">research</span>, <span class="hl">planning</span>, and <span class="hl">wireframes</span> — then our experienced designers and developers take it further, creating something uniquely yours.</p>
+          <p class="lead">And we back it all up with the right marketing strategies to bring customers to your website and help turn visits into business.</p>
+        </div>
+        <p class="ai-close">Every website is designed around your brand, your business, and your customers.</p>
       </div>
-      <p class="ai-close">Every website is designed around your brand, your business, and your customers.</p>
+
+      <!-- The text as a picture: the AI draft in grey, the version our team
+           builds over it in brand colour, and marketing turning visits into
+           business. Decorative; the copy beside it carries the meaning. -->
+      <div class="ai-viz" aria-hidden="true">
+        <div class="ai-viz__win ai-viz__win--draft">
+          <span class="ai-viz__tag">AI draft</span>
+          <div class="ai-viz__bar"><i></i><i></i><i></i></div>
+          <div class="ai-viz__page">
+            <span class="ai-viz__nav"><i></i><i></i><i></i></span>
+            <span class="ai-viz__line ai-viz__line--l"></span>
+            <span class="ai-viz__line ai-viz__line--m"></span>
+            <span class="ai-viz__tiles"><i></i><i></i><i></i></span>
+          </div>
+        </div>
+
+        <div class="ai-viz__win ai-viz__win--final">
+          <span class="ai-viz__tag ai-viz__tag--team">Uniquely yours</span>
+          <div class="ai-viz__bar"><i></i><i></i><i></i></div>
+          <div class="ai-viz__page">
+            <span class="ai-viz__nav"><b></b><i></i><i></i><i></i><u></u></span>
+            <span class="ai-viz__hero">
+              <span class="ai-viz__line ai-viz__line--l"></span>
+              <span class="ai-viz__line ai-viz__line--accent"></span>
+              <span class="ai-viz__btn"></span>
+            </span>
+            <span class="ai-viz__tiles"><i></i><i></i><i></i></span>
+          </div>
+        </div>
+
+        <div class="ai-viz__mkt">
+          <span class="ai-viz__mkt-ic"><svg><use href="#i-chart"/></svg></span>
+          <span class="ai-viz__mkt-txt"><b>Marketing</b>Visits into business</span>
+          <svg class="ai-viz__spark" viewBox="0 0 64 24"><polyline points="2,20 14,15 24,17 36,9 48,11 62,3"/></svg>
+        </div>
+      </div>
     </div>
   </section>
 
