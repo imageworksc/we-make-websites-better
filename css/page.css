@@ -7,6 +7,7 @@
      1. Base and text measure
      2. Hero
      3. Slim sections (shared head and closing row)
+        How We Use AI
      4. Your Business Deserves
      5. AI Is a Great Tool
      6. Try Before You Buy
@@ -30,7 +31,7 @@
 
 [id] { scroll-margin-top: 96px; }
 
-#main :is(p, .sec-title, .answer-card__title, dt, dd) {
+#main :is(p, .sec-title, dt, dd) {
   max-width: min(var(--text-60), 100%);
 }
 
@@ -85,31 +86,43 @@
 .slim-foot--stack > p { flex: none; }
 
 
-/* 4. Your Business Deserves
-   --------------------------------------------------------------------------
-   Five improvements on one row, unboxed, split by hairlines. */
-.tags {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  align-items: center;
-  margin: 32px 0 0;
-  padding: 0;
-}
-.tags li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  min-height: 40px;
-  padding: 0 20px;
-  font-size: 16px;
+/* How We Use AI: no card. The first paragraph carries the underlined terms
+   and reads a step stronger; the closing line sits on a green rule. */
+#main .ai-lead { color: var(--ink); }
+.ai-close {
+  margin: 26px 0 0;
+  padding-left: 18px;
+  border-left: 3px solid var(--green);
+  font-size: 18px;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.5;
   color: var(--navy);
 }
-.tags li:first-child { padding-left: 0; }
-.tags li + li { border-left: 1px solid var(--border); }
-.tags svg { flex: none; width: 20px; height: 20px; color: var(--green-ink); }
+
+
+/* 4. Your Business Deserves
+   --------------------------------------------------------------------------
+   The five improvements as a short vertical list, split by hairlines. */
+.feat-list {
+  list-style: none;
+  width: 100%;
+  max-width: min(var(--text-60), 100%);
+  margin: 28px 0 0;
+  padding: 0;
+}
+.feat-list li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--navy);
+}
+.feat-list li:first-child { border-top: 1px solid var(--border); }
+.feat-list svg { flex: none; width: 20px; height: 20px; color: var(--green-ink); }
 
 
 /* 5. AI Is a Great Tool
@@ -430,11 +443,6 @@
 /* 11. Breakpoints (widest first)
    -------------------------------------------------------------------------- */
 @media (max-width: 1000px) {
-  .tags { grid-template-columns: minmax(0, 1fr); }
-  .tags li,
-  .tags li:first-child { min-height: 0; padding: 13px 0; }
-  .tags li + li { border-left: 0; border-top: 1px solid var(--border); }
-
   .contact { grid-template-columns: minmax(0, 1fr); }
 }
 
@@ -445,7 +453,8 @@
 }
 
 @media (max-width: 760px) {
-  #main :is(p, .sec-title, .answer-card__title, dt, dd) { max-width: 100%; }
+  #main :is(p, .sec-title, dt, dd),
+  .feat-list { max-width: 100%; }
   .hero h1 { font-size: clamp(20px, 6.6vw, 46px); }
   .mbar { display: block; }
   .sf-footer { padding-bottom: 76px; }
