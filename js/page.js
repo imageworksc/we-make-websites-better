@@ -10,7 +10,7 @@
 
   /* 1. Form
      ------------------------------------------------------------------------ */
-  const card = document.querySelector('.form-card');
+  const card = document.querySelector('.wm-form-card');
   const form = document.getElementById('form-el');
   const interest = document.getElementById('f-interest');
 
@@ -18,7 +18,7 @@
   document.querySelectorAll('[data-interest]').forEach((link) => {
     link.addEventListener('click', () => {
       interest.value = link.dataset.interest;
-      interest.closest('.field').classList.remove('is-error');
+      interest.closest('.wm-field').classList.remove('is-error');
     });
   });
 
@@ -36,7 +36,7 @@
     // A field clears its error as soon as it becomes valid.
     required.forEach((field) => {
       const clear = () => {
-        if (isValid(field)) field.closest('.field').classList.remove('is-error');
+        if (isValid(field)) field.closest('.wm-field').classList.remove('is-error');
       };
       field.addEventListener('input', clear);
       field.addEventListener('change', clear);
@@ -48,7 +48,7 @@
       let firstInvalid = null;
       required.forEach((field) => {
         const invalid = !isValid(field);
-        field.closest('.field').classList.toggle('is-error', invalid);
+        field.closest('.wm-field').classList.toggle('is-error', invalid);
         if (invalid && !firstInvalid) firstInvalid = field;
       });
 

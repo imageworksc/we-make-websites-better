@@ -2,7 +2,7 @@
    Entrance reveals, from the AI Website Design page (script.js, part 1)
 
    Degrades to plain content if this file never runs: the stylesheet hides a
-   .reveal only while `data-anim` is set, and only this script sets it.
+   .wm-reveal only while `data-anim` is set, and only this script sets it.
    Loaded with `defer`, so the document is parsed by the time this runs.
    ========================================================================== */
 
@@ -12,7 +12,7 @@
   const root = document.documentElement;
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-  const targets = Array.from(document.querySelectorAll('.reveal'));
+  const targets = Array.from(document.querySelectorAll('.wm-reveal'));
   if (!targets.length) return;
 
   // The flag goes on either way: the stylesheet only hides a reveal while the
