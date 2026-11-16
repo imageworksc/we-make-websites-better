@@ -405,35 +405,32 @@ html:has(#wm-main) { scroll-behavior: smooth; }
 
 /* 6. Try Before You Buy
    --------------------------------------------------------------------------
-   The offer on the left, the six steps as a numbered list on the right. */
+   One column: the offer, the six steps as a numbered list at text width,
+   then the result and the call. */
 
-.wm-tbl {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: clamp(36px, 6vw, 88px);
-  align-items: start;
-}
+.wm-tbl__title { max-width: none; }
 
-.wm-tbl__intro {
-  position: sticky;
-  top: 120px;
+/* the list and the closing row share the copy's measure */
+.wm-tbl .wm-tbl__list,
+.wm-tbl__end { max-width: min(calc(var(--wm-text-60) + 60px), 100%); }
+
+.wm-tbl .wm-tbl__list { margin-top: 28px; }
+
+.wm-tbl__end {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 18px;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--wm-border);
 }
-
-.wm-tbl__intro .wm-sec-title { margin: 0; }
-
-.wm-tbl__intro .wm-lead { margin: 0; font-size: 17px; }
-
-.wm-tbl__title { max-width: none; }
 
 .wm-tbl__stat {
   display: flex;
   align-items: center;
   gap: 14px;
-  margin: 6px 0 0;
+  margin: 0;
   font-size: 15px;
   line-height: 1.5;
   color: var(--wm-muted);
@@ -453,7 +450,6 @@ html:has(#wm-main) { scroll-behavior: smooth; }
   flex-wrap: wrap;
   align-items: center;
   gap: 12px 16px;
-  margin-top: 8px;
 }
 
 .wm-btn-note {
@@ -731,8 +727,6 @@ html:has(#wm-main) { scroll-behavior: smooth; }
 }
 
 @media (max-width: 900px) {
-  .wm-tbl { grid-template-columns: minmax(0, 1fr); gap: 32px; }
-  .wm-tbl__intro { position: static; }
   .wm-br-d { display: none; }
 }
 
