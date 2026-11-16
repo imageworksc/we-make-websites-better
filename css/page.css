@@ -339,13 +339,14 @@ html:has(#wm-main) { scroll-behavior: smooth; }
 
 /* 5. AI Is a Great Tool
    --------------------------------------------------------------------------
-   AI -> team as one strip, then the three "No" lines on one row. */
+   AI and the team as one strip in two columns, then the three "No" lines
+   on one row. */
 
 .wm-duo {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-  align-items: center;
-  gap: clamp(16px, 3vw, 40px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 20px clamp(32px, 5vw, 72px);
   margin-top: 36px;
   padding: 24px clamp(20px, 3vw, 32px);
   background: var(--wm-white);
@@ -381,16 +382,6 @@ html:has(#wm-main) { scroll-behavior: smooth; }
 .wm-duo__ic--team { background: var(--wm-chip-green); color: var(--wm-green-ink); }
 
 .wm-duo__ic svg { width: 16px; height: 16px; }
-
-.wm-duo__to {
-  display: grid;
-  place-items: center;
-  width: 36px;
-  height: 36px;
-  border: 1px solid var(--wm-border);
-  border-radius: 50%;
-  color: var(--wm-green-ink);
-}
 
 .wm-nos {
   list-style: none;
@@ -726,7 +717,6 @@ html:has(#wm-main) { scroll-behavior: smooth; }
 .wm-slim-foot--stack .wm-btn,
 .wm-tbl__cta .wm-btn { width: 100%; }
   .wm-duo { grid-template-columns: minmax(0, 1fr); }
-  .wm-duo__to { transform: rotate(90deg); }
   /* the services list matches the rest of the page's mobile type */
   .wm-cms-row { gap: 14px; padding: 18px; }
   .wm-cms-icon { inline-size: 38px; block-size: 38px; }
