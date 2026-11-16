@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#143c66">
 <link rel="stylesheet" href="css/styles.css?v=31">
 <link rel="stylesheet" href="css/chrome.css?v=30">
-<link rel="stylesheet" href="css/page.css?v=46">
+<link rel="stylesheet" href="css/page.css?v=47">
 </head>
 <body>
 <a class="wm-skip-to-content" href="#wm-main">Skip to content</a>
@@ -81,7 +81,8 @@
 <main id="wm-main" class="wm-scope html-wrapper">
   <svg width="0" height="0" aria-hidden="true" focusable="false" class="wm-icon-defs">
     <defs>
-      <symbol id="i-x" viewBox="0 0 16 16"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+      <symbol id="i-check" viewBox="0 0 16 16"><path d="M3.6 8.4 6.4 11.2 12.4 5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-x" viewBox="0 0 16 16"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
       <symbol id="i-arrow" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><polyline points="12 5 19 12 12 19" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
       <symbol id="i-pen" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1-4L16.5 4.5a2.1 2.1 0 0 1 3 3L8 19l-4 1z"/><path d="M14.5 6.5l3 3"/></g></symbol>
       <symbol id="i-page" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13.6 3H6.8A1.8 1.8 0 0 0 5 4.8v14.4A1.8 1.8 0 0 0 6.8 21h10.4a1.8 1.8 0 0 0 1.8-1.8V8.4z"/><path d="M13.6 3v5.4H19"/><path d="M8.4 13h7.2M8.4 16.6h4.8"/></g></symbol>
@@ -292,8 +293,8 @@
   </section>
 
   <!-- 6 · WEBSITE WORTH MARKETING + THE RIGHT MARKETING (one column: the
-       argument, a diagram of every path ending on the website, then the
-       services as a four-column grid) -->
+       argument, the four ways people find you as a checked list, then the
+       services as tiles and the call) -->
   <section class="wm-band wm-band--tint" aria-labelledby="marketing-title" id="marketing">
     <div class="wm-wrap wm-reveal">
       <div class="wm-slim-head">
@@ -302,28 +303,13 @@
         <p class="wm-lead"><strong>Why?</strong> Because whether someone finds you on Google, through an advertisement, on social media, or through an AI recommendation, they're likely to visit your website before making a decision.</p>
       </div>
 
-      <!-- Every path ends on the website. The four sources are the ones the
-           paragraph names; the destination carries its closing line. -->
-      <div class="wm-paths">
-        <ul class="wm-paths__from" aria-label="Where people find you">
-          <li><span class="wm-paths__ic"><svg aria-hidden="true"><use href="#i-search"/></svg></span>Google</li>
-          <li><span class="wm-paths__ic"><svg aria-hidden="true"><use href="#i-target"/></svg></span>An advertisement</li>
-          <li><span class="wm-paths__ic"><svg aria-hidden="true"><use href="#i-chat"/></svg></span>Social media</li>
-          <li><span class="wm-paths__ic"><svg aria-hidden="true"><use href="#i-spark"/></svg></span>An AI recommendation</li>
-        </ul>
-        <span class="wm-paths__join" aria-hidden="true"></span>
-        <div class="wm-paths__to">
-          <div class="wm-paths__bar" aria-hidden="true"><i></i><i></i><i></i><span>yourbusiness.com</span></div>
-          <div class="wm-paths__page">
-            <span class="wm-paths__label">Your website</span>
-            <p>What they see when they arrive matters.</p>
-            <span class="wm-paths__sketch" aria-hidden="true">
-              <i class="wm-paths__hero"></i>
-              <span class="wm-paths__tiles"><i></i><i></i><i></i></span>
-            </span>
-          </div>
-        </div>
-      </div>
+      <ul class="wm-checks" aria-label="Where people find you">
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Google</li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>An advertisement</li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Social media</li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>An AI recommendation</li>
+      </ul>
+      <p class="wm-checks-close">What they see when they arrive matters.</p>
 
       <div class="wm-mk-sub">
         <h3>The right marketing, not every marketing service</h3>
