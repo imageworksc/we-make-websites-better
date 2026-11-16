@@ -650,71 +650,53 @@ html:has(#wm-main) { scroll-behavior: smooth; }
 
 #wm-main .wm-mk-sub p { margin: 0; font-size: 16.5px; line-height: 1.7; color: var(--wm-muted); }
 
-/* the services: white tiles on the tint, four over three. The second row
-   stretches so the grid has no gap; on hover a tile lifts, draws the green
-   bar across its top and turns its icon green (the Search Funnels and
-   Facelift card hover). */
+/* the services: borderless white cards on the tint, four over three. The
+   second row stretches so the grid has no gap. Each card leads with a
+   solid navy icon square; on hover the card lifts, its shadow deepens and
+   the square turns green. No top rule. */
 .wm-svc {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: 16px;
+  gap: 18px;
   margin: 28px 0 0;
   padding: 0;
 }
 
 #wm-main .wm-svc li {
-  position: relative;
-  overflow: hidden;
   grid-column: span 3;
-  padding: 24px 22px 26px;
+  padding: 28px 26px 30px;
   background: var(--wm-white);
-  border: 1px solid var(--wm-border);
+  border: 0;
   border-radius: var(--wm-r);
-  box-shadow: var(--wm-shadow-flat);
-  transition: transform .35s var(--wm-ease), box-shadow .35s var(--wm-ease), border-color .25s var(--wm-ease);
+  box-shadow: 0 1px 2px rgba(20, 40, 80, .05), 0 8px 24px rgba(20, 40, 80, .07);
+  transition: transform .35s var(--wm-ease), box-shadow .35s var(--wm-ease);
 }
 
 #wm-main .wm-svc li:nth-child(n+5) { grid-column: span 4; }
 
-#wm-main .wm-svc li::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--wm-green);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform .45s var(--wm-ease);
-}
-
 #wm-main .wm-svc li:hover {
   transform: translateY(-4px);
-  border-color: #c3d6ea;
-  box-shadow: var(--wm-shadow-card);
+  box-shadow: 0 2px 4px rgba(20, 40, 80, .06), 0 18px 40px rgba(20, 40, 80, .13);
 }
-
-#wm-main .wm-svc li:hover::before { transform: scaleX(1); }
 
 .wm-svc__ic {
   display: grid;
   place-items: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: var(--wm-tint-blue);
-  color: var(--wm-blue);
-  transition: background-color .3s var(--wm-ease), color .3s var(--wm-ease);
+  width: 46px;
+  height: 46px;
+  border-radius: var(--wm-r);
+  background: var(--wm-navy);
+  color: var(--wm-white);
+  transition: background-color .3s var(--wm-ease);
 }
 
-.wm-svc__ic svg { width: 20px; height: 20px; }
+.wm-svc__ic svg { width: 21px; height: 21px; }
 
-#wm-main .wm-svc li:hover .wm-svc__ic { background: var(--wm-chip-green); color: var(--wm-green-ink); }
+#wm-main .wm-svc li:hover .wm-svc__ic { background: var(--wm-green); }
 
 #wm-main .wm-svc h4 {
-  margin: 16px 0 6px;
+  margin: 18px 0 6px;
   font-size: 16.5px;
   font-weight: 800;
   line-height: 1.35;
