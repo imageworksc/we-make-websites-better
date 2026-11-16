@@ -594,23 +594,197 @@ html:has(#wm-main) { scroll-behavior: smooth; }
 
 /* 7. Website Worth Marketing
    --------------------------------------------------------------------------
-   The closing link under the left-hand copy. */
+   One column. The argument, then a diagram of it: the four places people
+   find you, each joined to one line that ends on the website. Then the
+   services as an open four-column grid, split by hairlines, no cards. */
 
-.wm-aside-link { margin: 20px 0 0; }
-
-.wm-aside-link a {
-  display: inline-flex;
+.wm-paths {
+  --wm-pill: 48px;
+  display: grid;
+  grid-template-columns: minmax(0, 300px) 96px minmax(0, 420px);
   align-items: center;
-  gap: 8px;
-  font-size: var(--wm-step-0);
+  margin-top: 40px;
+}
+
+.wm-paths__from {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+#wm-main .wm-paths__from li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: var(--wm-pill);
+  padding: 0 18px;
+  background: var(--wm-white);
+  border: 1px solid var(--wm-border);
+  border-radius: var(--wm-r);
+  box-shadow: var(--wm-shadow-flat);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--wm-navy);
+}
+
+.wm-paths__from svg { flex: none; width: 18px; height: 18px; color: var(--wm-green-ink); }
+
+/* each source draws its stub to the shared rail */
+.wm-paths__from li::after {
+  content: '';
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  width: 32px;
+  height: 2px;
+  background: #c3d6ea;
+}
+
+/* the rail: a vertical line through the stubs, then one line on to the site */
+.wm-paths__join {
+  position: relative;
+  align-self: stretch;
+}
+
+.wm-paths__join::before {
+  content: '';
+  position: absolute;
+  left: 31px;
+  top: calc(var(--wm-pill) / 2);
+  bottom: calc(var(--wm-pill) / 2);
+  width: 2px;
+  background: #c3d6ea;
+}
+
+.wm-paths__join::after {
+  content: '';
+  position: absolute;
+  left: 31px;
+  right: 8px;
+  top: 50%;
+  height: 2px;
+  background: var(--wm-green);
+}
+
+.wm-paths__to {
+  position: relative;
+  padding: 30px 32px;
+  border-radius: var(--wm-r);
+  background: linear-gradient(135deg, var(--wm-blue), var(--wm-navy-deep));
+  box-shadow: var(--wm-shadow-card);
+}
+
+/* arrowhead where the line meets the website */
+.wm-paths__to::before {
+  content: '';
+  position: absolute;
+  left: -9px;
+  top: 50%;
+  border: 6px solid transparent;
+  border-left: 8px solid var(--wm-green);
+  transform: translateY(-50%);
+}
+
+.wm-paths__label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 12px;
   font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--wm-green);
+}
+
+#wm-main .wm-paths__to p {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: -.3px;
+  color: var(--wm-white);
+}
+
+/* the right marketing: a short head over the grid */
+.wm-mk-sub { margin-top: 64px; }
+
+#wm-main .wm-mk-sub h3 {
+  margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: -.3px;
+  color: var(--wm-navy);
+}
+
+#wm-main .wm-mk-sub p { margin: 0; font-size: 16.5px; line-height: 1.7; color: var(--wm-muted); }
+
+.wm-svc {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0 36px;
+  margin: 28px 0 0;
+  padding: 0;
+}
+
+#wm-main .wm-svc li {
+  padding: 24px 0 28px;
+  border-top: 1px solid var(--wm-border);
+}
+
+.wm-svc__ic {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--wm-tint-blue);
+  color: var(--wm-blue);
+  transition: background-color .3s var(--wm-ease), color .3s var(--wm-ease);
+}
+
+.wm-svc__ic svg { width: 19px; height: 19px; }
+
+#wm-main .wm-svc li:hover .wm-svc__ic { background: var(--wm-chip-green); color: var(--wm-green-ink); }
+
+#wm-main .wm-svc h4 {
+  margin: 14px 0 6px;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.35;
+  color: var(--wm-navy);
+}
+
+#wm-main .wm-svc p { margin: 0; font-size: 14.5px; line-height: 1.6; color: var(--wm-muted); }
+
+/* the eighth cell is the call */
+#wm-main .wm-svc .wm-svc__cta { display: flex; align-items: center; }
+
+.wm-svc__cta a {
+  display: inline;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.35;
   color: var(--wm-green-ink);
   text-decoration: none;
 }
 
-.wm-aside-link a svg { transition: transform .25s var(--wm-ease); }
+.wm-svc__cta a svg {
+  display: inline-block;
+  margin-left: 6px;
+  vertical-align: -2px;
+  transition: transform .25s var(--wm-ease);
+}
 
-.wm-aside-link a:hover svg { transform: translateX(5px); }
+.wm-svc__cta a:hover svg { transform: translateX(5px); }
+
+/* the last word and the arrow never part */
+.wm-svc__last { white-space: nowrap; }
+
 
 /* 8. Nearly 30 Years
    --------------------------------------------------------------------------
@@ -788,6 +962,8 @@ html:has(#wm-main) { scroll-behavior: smooth; }
    -------------------------------------------------------------------------- */
 
 @media (max-width: 1000px) {
+  .wm-svc { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
   .wm-ai-grid { grid-template-columns: minmax(0, 1fr); gap: 40px; }
   .wm-ai-viz { justify-self: start; }
   .wm-contact { grid-template-columns: minmax(0, 1fr); }
@@ -798,6 +974,22 @@ html:has(#wm-main) { scroll-behavior: smooth; }
 }
 
 @media (max-width: 760px) {
+  /* the diagram turns downward: the sources in a 2x2 grid, one line down */
+  .wm-paths { grid-template-columns: minmax(0, 1fr); }
+  .wm-paths__from { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  #wm-main .wm-paths__from li { padding: 0 12px; font-size: 14px; }
+  .wm-paths__from li::after,
+  .wm-paths__join::before { content: none; }
+  .wm-paths__join { height: 40px; }
+  .wm-paths__join::after { left: 50%; right: auto; top: 6px; bottom: 6px; width: 2px; height: auto; }
+  .wm-paths__to::before {
+    left: 50%;
+    top: -9px;
+    border: 6px solid transparent;
+    border-top: 8px solid var(--wm-green);
+    transform: translateX(-50%);
+  }
+
   #wm-main :is(p, .wm-sec-title, dt, dd),
   .wm-feat-list,
   .wm-tbl .wm-tbl__list,
@@ -814,12 +1006,18 @@ html:has(#wm-main) { scroll-behavior: smooth; }
 .wm-slim-foot--stack .wm-btn,
 .wm-tbl__cta .wm-btn { width: 100%; }
   .wm-duo { grid-template-columns: minmax(0, 1fr); }
-  /* the services list matches the rest of the page's mobile type */
-  .wm-cms-row { gap: 14px; padding: 18px; }
-  .wm-cms-icon { inline-size: 38px; block-size: 38px; }
-  .wm-cms-body dt { font-size: 17px; }
-  .wm-cms-body dd { font-size: 15.5px; line-height: 1.6; }
   .wm-fgrid { grid-template-columns: minmax(0, 1fr); }
+  .wm-svc { grid-template-columns: minmax(0, 1fr); }
+  /* icon beside the name on phones, so seven services stay short */
+  #wm-main .wm-svc li:not(.wm-svc__cta) {
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: 2px 14px;
+    padding: 18px 0;
+  }
+  .wm-svc__ic { grid-row: 1 / 3; }
+  #wm-main .wm-svc h4 { margin: 2px 0 0; }
+  #wm-main .wm-svc .wm-svc__cta { padding: 18px 0 0; }
   .wm-feat-list { grid-template-columns: minmax(0, 1fr); }
   .wm-feat-list li:nth-child(2) { border-top: 0; }
 }

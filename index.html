@@ -6,9 +6,9 @@
 <title>We Make Websites Better. A Lot Better. | ImageWorks Creative</title>
 <meta name="description" content="Custom web design and digital marketing since 1997. No templates. No AI-generated websites. Ask about Try Before You Buy.">
 <meta name="theme-color" content="#143c66">
-<link rel="stylesheet" href="css/styles.css?v=30">
+<link rel="stylesheet" href="css/styles.css?v=31">
 <link rel="stylesheet" href="css/chrome.css?v=30">
-<link rel="stylesheet" href="css/page.css?v=36">
+<link rel="stylesheet" href="css/page.css?v=40">
 </head>
 <body>
 <a class="wm-skip-to-content" href="#wm-main">Skip to content</a>
@@ -291,51 +291,78 @@
     </div>
   </section>
 
-  <!-- 6 · WEBSITE WORTH MARKETING + THE RIGHT MARKETING -->
+  <!-- 6 · WEBSITE WORTH MARKETING + THE RIGHT MARKETING (one column: the
+       argument, a diagram of every path ending on the website, then the
+       services as a four-column grid) -->
   <section class="wm-band wm-band--tint" aria-labelledby="marketing-title" id="marketing">
-    <div class="wm-wrap wm-cms-split">
-      <div class="wm-cms-aside wm-reveal">
-        <h2 class="wm-sec-title wm-sec-title--wide" id="marketing-title">Build a Website Worth Marketing.<br class="wm-br-d"> <em>Then Get the Word Out.</em></h2>
+    <div class="wm-wrap wm-reveal">
+      <div class="wm-slim-head">
+        <h2 class="wm-sec-title" id="marketing-title">Build a Website Worth Marketing.<br class="wm-br-d"> <em>Then Get the Word Out.</em></h2>
         <p class="wm-lead">We believe a strong brand and an impressive website should come before a major investment in marketing.</p>
-        <p class="wm-lead"><strong>Why?</strong> Because whether someone finds you on Google, through an advertisement, on social media, or through an AI recommendation, they're likely to visit your website before making a decision. What they see when they arrive matters.</p>
-        <div class="wm-sub wm-cms-close">
-          <h3>The right marketing, not every marketing service</h3>
-          <p>We start by getting your website right, while planning how your marketing will support it. Different businesses need different strategies — we help you figure out which ones are worth your investment.</p>
+        <p class="wm-lead"><strong>Why?</strong> Because whether someone finds you on Google, through an advertisement, on social media, or through an AI recommendation, they're likely to visit your website before making a decision.</p>
+      </div>
+
+      <!-- Every path ends on the website. The four sources are the ones the
+           paragraph names; the destination carries its closing line. -->
+      <div class="wm-paths">
+        <ul class="wm-paths__from" aria-label="Where people find you">
+          <li><svg aria-hidden="true"><use href="#i-search"/></svg>Google</li>
+          <li><svg aria-hidden="true"><use href="#i-target"/></svg>An advertisement</li>
+          <li><svg aria-hidden="true"><use href="#i-chat"/></svg>Social media</li>
+          <li><svg aria-hidden="true"><use href="#i-spark"/></svg>An AI recommendation</li>
+        </ul>
+        <span class="wm-paths__join" aria-hidden="true"></span>
+        <div class="wm-paths__to">
+          <span class="wm-paths__label">Your website</span>
+          <p>What they see when they arrive matters.</p>
         </div>
-        <p class="wm-aside-link"><a href="#start">Talk to us about your marketing <svg class="wm-icon" width="15" height="15" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
       </div>
-      <div class="wm-reveal">
-        <dl class="wm-cms-list">
-          <div class="wm-cms-row">
-            <span class="wm-cms-icon"><svg aria-hidden="true"><use href="#i-search"/></svg></span>
-            <div class="wm-cms-body"><dt>Google Search &amp; SEO</dt><dd>Helping customers find your business.</dd></div>
-          </div>
-          <div class="wm-cms-row">
-            <span class="wm-cms-icon"><svg aria-hidden="true"><use href="#i-pin"/></svg></span>
-            <div class="wm-cms-body"><dt>Google Maps &amp; Local SEO</dt><dd>Strengthening your visibility in the communities you serve.</dd></div>
-          </div>
-          <div class="wm-cms-row">
-            <span class="wm-cms-icon"><svg aria-hidden="true"><use href="#i-spark"/></svg></span>
-            <div class="wm-cms-body"><dt>AI Search Optimization</dt><dd>Making your business easier to discover and understand through AI-powered search.</dd></div>
-          </div>
-          <div class="wm-cms-row">
-            <span class="wm-cms-icon"><svg aria-hidden="true"><use href="#i-target"/></svg></span>
-            <div class="wm-cms-body"><dt>Google Ads &amp; Paid Social</dt><dd>Reaching targeted audiences with the right campaigns.</dd></div>
-          </div>
-          <div class="wm-cms-row">
-            <span class="wm-cms-icon"><svg aria-hidden="true"><use href="#i-chat"/></svg></span>
-            <div class="wm-cms-body"><dt>Social Media &amp; Content Marketing</dt><dd>Building awareness and keeping your business visible.</dd></div>
-          </div>
-          <div class="wm-cms-row">
-            <span class="wm-cms-icon"><svg aria-hidden="true"><use href="#i-mail"/></svg></span>
-            <div class="wm-cms-body"><dt>Email Marketing</dt><dd>Staying connected with prospects and existing customers.</dd></div>
-          </div>
-          <div class="wm-cms-row">
-            <span class="wm-cms-icon"><svg aria-hidden="true"><use href="#i-chart"/></svg></span>
-            <div class="wm-cms-body"><dt>Ongoing Optimization</dt><dd>Testing, measuring, and improving what works.</dd></div>
-          </div>
-        </dl>
+
+      <div class="wm-mk-sub">
+        <h3>The right marketing, not every marketing service</h3>
+        <p>We start by getting your website right, while planning how your marketing will support it. Different businesses need different strategies — we help you figure out which ones are worth your investment.</p>
       </div>
+
+      <ul class="wm-svc" aria-label="Our capabilities">
+        <li>
+          <span class="wm-svc__ic"><svg aria-hidden="true"><use href="#i-search"/></svg></span>
+          <h4>Google Search &amp; SEO</h4>
+          <p>Helping customers find your business.</p>
+        </li>
+        <li>
+          <span class="wm-svc__ic"><svg aria-hidden="true"><use href="#i-pin"/></svg></span>
+          <h4>Google Maps &amp; Local SEO</h4>
+          <p>Strengthening your visibility in the communities you serve.</p>
+        </li>
+        <li>
+          <span class="wm-svc__ic"><svg aria-hidden="true"><use href="#i-spark"/></svg></span>
+          <h4>AI Search Optimization</h4>
+          <p>Making your business easier to discover and understand through AI-powered search.</p>
+        </li>
+        <li>
+          <span class="wm-svc__ic"><svg aria-hidden="true"><use href="#i-target"/></svg></span>
+          <h4>Google Ads &amp; Paid Social</h4>
+          <p>Reaching targeted audiences with the right campaigns.</p>
+        </li>
+        <li>
+          <span class="wm-svc__ic"><svg aria-hidden="true"><use href="#i-chat"/></svg></span>
+          <h4>Social Media &amp; Content Marketing</h4>
+          <p>Building awareness and keeping your business visible.</p>
+        </li>
+        <li>
+          <span class="wm-svc__ic"><svg aria-hidden="true"><use href="#i-mail"/></svg></span>
+          <h4>Email Marketing</h4>
+          <p>Staying connected with prospects and existing customers.</p>
+        </li>
+        <li>
+          <span class="wm-svc__ic"><svg aria-hidden="true"><use href="#i-chart"/></svg></span>
+          <h4>Ongoing Optimization</h4>
+          <p>Testing, measuring, and improving what works.</p>
+        </li>
+        <li class="wm-svc__cta">
+          <a href="#start">Talk to us about your <span class="wm-svc__last">marketing<svg class="wm-icon" width="15" height="15" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+        </li>
+      </ul>
     </div>
   </section>
 

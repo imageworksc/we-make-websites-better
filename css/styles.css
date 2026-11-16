@@ -103,6 +103,7 @@
    plus the theme's own p, h2, address and list rules). :where() adds no
    specificity, so the rules below and every component class still win
    without !important, and nothing here reaches the site's header and footer. */
+
 :where(.wm-scope) :is(h1, h2, h3, h4, p, address, small, ul, ol, li, dl, dd, figure, blockquote) {
   margin: 0;
   padding: 0;
@@ -117,6 +118,7 @@
 
 /* The theme underlines links on hover and focus. Components set their own
    hover colours; this only removes the underline. */
+
 :where(.wm-scope) a:is(:hover, :focus) { text-decoration: none; }
 
 :where(.wm-scope) *,
@@ -571,124 +573,13 @@ html:has(#wm-main):not([data-anim="on"]) .wm-hl { background-size: 100% 2px; }
       display: inline-block;
       animation: wm-hero-in .8s var(--wm-ease) .34s backwards;
     
+    
     }
   }
 }
 
 @keyframes wm-hero-in {
   from { opacity: 0; transform: translateY(14px); }
-}
-
-/* --------------------------------------------------------------------------
-   UNDER THE HOOD
-   The argument sits still on the left while the five capabilities scroll past
-   it on the right — the section reads as one thought instead of a table
-   floating under a paragraph.
-   -------------------------------------------------------------------------- */
-
-.wm-cms-split {
-  display: grid;
-  grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
-  gap: clamp(36px, 5vw, 72px);
-  align-items: start;
-}
-
-.wm-cms-aside {
-  position: sticky;
-  top: calc(var(--wm-nav-h) + 40px);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 18px;
-}
-
-.wm-cms-close {
-  margin-top: 6px;
-  padding-top: 20px;
-  border-top: 1px solid var(--wm-border);
-  font-size: 15px;
-  line-height: 1.7;
-  color: var(--wm-muted);
-  max-width: 46ch;
-}
-
-.wm-cms-list {
-  width: 100%;
-  border-radius: var(--wm-r);
-  overflow: hidden;
-  background: linear-gradient(180deg, var(--wm-card-top), var(--wm-card-bottom));
-  box-shadow: var(--wm-shadow-card);
-}
-
-.wm-cms-row {
-  position: relative;
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-  padding: 24px clamp(22px, 2.4vw, 30px);
-  border-top: 1px solid var(--wm-border-soft);
-  transition: background-color .35s var(--wm-ease);
-}
-
-.wm-cms-row:first-child { border-top: 0; }
-
-.wm-cms-row:hover { background: var(--wm-tint-blue); }
-
-/* The rule wipes in from the left — the same mechanic the home gives its
-   links, rather than a decorative bar that is simply always there. */
-
-.wm-cms-row::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -1px;
-  block-size: 2px;
-  background: var(--wm-green);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform .45s var(--wm-ease);
-}
-
-.wm-cms-row:hover::after { transform: scaleX(1); }
-
-.wm-cms-icon {
-  flex: none;
-  display: grid;
-  place-items: center;
-  inline-size: 48px;
-  block-size: 48px;
-  border-radius: 50%;
-  background: var(--wm-tint-blue);
-  color: var(--wm-blue);
-  transition: background-color .35s var(--wm-ease), color .35s var(--wm-ease),
-              transform .35s var(--wm-ease);
-}
-
-.wm-cms-icon svg { inline-size: 22px; block-size: 22px; }
-
-.wm-cms-row:hover .wm-cms-icon {
-  background: var(--wm-navy);
-  color: #fff;
-  transform: scale(1.08);
-}
-
-.wm-cms-body { display: flex; flex-direction: column; gap: 5px; }
-
-.wm-cms-body dt {
-  font-size: var(--wm-step-1);
-  font-weight: 800;
-  color: var(--wm-navy);
-  letter-spacing: -.01em;
-  transition: transform .35s var(--wm-ease);
-}
-
-.wm-cms-row:hover .wm-cms-body dt { transform: translateX(4px); }
-
-.wm-cms-body dd {
-  font-size: 15px;
-  line-height: 1.65;
-  color: var(--wm-muted);
 }
 
 /* --------------------------------------------------------------------------
@@ -704,17 +595,6 @@ html:has(#wm-main):not([data-anim="on"]) .wm-hl { background-size: 100% 2px; }
 
 [data-anim="on"] .wm-reveal.is-revealed { opacity: 1; transform: none; }
 
-/* --------------------------------------------------------------------------
-   RESPONSIVE
-   -------------------------------------------------------------------------- */
-
-@media (max-width: 900px) {
-  /* the aside has nothing to stay beside once the list drops below it */
-  .wm-cms-split { grid-template-columns: 1fr; }
-  .wm-cms-aside { position: static; }
-  .wm-cms-close { max-width: var(--wm-measure); }
-}
-
 @media (max-width: 640px) {
   .wm-btn-row { width: 100%; }
   .wm-btn-row .wm-btn { flex: 1 1 100%; }
@@ -729,12 +609,9 @@ html:has(#wm-main):not([data-anim="on"]) .wm-hl { background-size: 100% 2px; }
     transition-duration: .01ms !important;
     scroll-behavior: auto !important;
   
+  
   }
   [data-anim="on"] .wm-reveal { opacity: 1; transform: none; }
-  /* the CMS rows keep their colour change and drop the movement */
-  .wm-cms-row::after { display: none; }
-  .wm-cms-row:hover .wm-cms-icon { transform: none; }
-  .wm-cms-row:hover .wm-cms-body dt { transform: none; }
   /* the lines stay, they just stop being drawn */
   .wm-hl { background-size: 100% 2px; transition: none; }
 }
@@ -782,10 +659,6 @@ html:has(#wm-main):not([data-anim="on"]) .wm-hl { background-size: 100% 2px; }
 
 .wm-lead { font-size: 18px; line-height: 1.75; max-width: 720px; }
 
-.wm-cms-body dt { font-size: 20px; letter-spacing: -.3px; }
-
-.wm-cms-body dd { font-size: 18px; line-height: 1.7; }
-
 .wm-btn { font-size: 15px; }
 
 /* The stagger index the marker sweep counts off. The shared block stops at
@@ -810,17 +683,6 @@ html:has(#wm-main):not([data-anim="on"]) .wm-hl { background-size: 100% 2px; }
   min-height: min(56vh, 470px);
   padding-block: clamp(48px, 5vw, 76px) clamp(26px, 2.8vw, 40px);
 }
-
-/* --------------------------------------------------------------------------
-   SUBHEAD — a short titled note inside a band
-   Used by the scope aside and by the pricing band.
-   -------------------------------------------------------------------------- */
-
-.wm-sub { max-width: var(--wm-measure); }
-
-.wm-sub h3 { font-size: 20px; letter-spacing: -.3px; margin-bottom: 8px; }
-
-.wm-sub p { font-size: 16.5px; line-height: 1.7; color: var(--wm-muted); }
 
 /* --------------------------------------------------------------------------
    PRICING — the rate as a figure, on the deep band
