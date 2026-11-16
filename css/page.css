@@ -652,8 +652,8 @@ html:has(#wm-main) { scroll-behavior: smooth; }
 
 /* the services: borderless white cards on the tint, four over three. The
    second row stretches so the grid has no gap. Each card leads with a
-   solid navy icon square; on hover the card lifts, its shadow deepens and
-   the square turns green. No top rule. */
+   free-standing icon; on hover the card lifts, its shadow deepens and the
+   icon turns green. No top rule, no icon box. */
 .wm-svc {
   list-style: none;
   display: grid;
@@ -681,19 +681,14 @@ html:has(#wm-main) { scroll-behavior: smooth; }
 }
 
 .wm-svc__ic {
-  display: grid;
-  place-items: center;
-  width: 46px;
-  height: 46px;
-  border-radius: var(--wm-r);
-  background: var(--wm-navy);
-  color: var(--wm-white);
-  transition: background-color .3s var(--wm-ease);
+  display: block;
+  color: var(--wm-blue);
+  transition: color .3s var(--wm-ease);
 }
 
-.wm-svc__ic svg { width: 21px; height: 21px; }
+.wm-svc__ic svg { display: block; width: 30px; height: 30px; }
 
-#wm-main .wm-svc li:hover .wm-svc__ic { background: var(--wm-green); }
+#wm-main .wm-svc li:hover .wm-svc__ic { color: var(--wm-green-ink); }
 
 #wm-main .wm-svc h4 {
   margin: 18px 0 6px;
@@ -922,11 +917,12 @@ html:has(#wm-main) { scroll-behavior: smooth; }
   #wm-main .wm-svc li:last-child {
     grid-column: 1 / -1;
     display: grid;
-    grid-template-columns: 40px minmax(0, 1fr);
-    gap: 2px 14px;
+    grid-template-columns: 26px minmax(0, 1fr);
+    gap: 2px 16px;
     padding: 18px;
   }
-  .wm-svc__ic { grid-row: 1 / 3; width: 40px; height: 40px; }
+  .wm-svc__ic { grid-row: 1 / 3; padding-top: 2px; }
+  .wm-svc__ic svg { width: 26px; height: 26px; }
   #wm-main .wm-svc h4 { margin: 2px 0 0; }
   #wm-main .wm-svc li:hover { transform: none; }
   .wm-svc-cta .wm-btn { width: 100%; }
