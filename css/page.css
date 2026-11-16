@@ -265,14 +265,16 @@ html:has(#wm-main) { scroll-behavior: smooth; }
    the marketing services (no border, soft shadow), so the page keeps one
    card language. */
 .wm-ai-card {
-  max-width: 860px;
-  padding: clamp(28px, 4vw, 52px) clamp(24px, 4.4vw, 56px);
+  max-width: 760px;
+  margin-inline: auto;
+  padding: clamp(24px, 3vw, 36px) clamp(22px, 3.6vw, 44px);
+  text-align: left;
   background: var(--wm-white);
   border-radius: var(--wm-r);
   box-shadow: 0 1px 2px rgba(20, 40, 80, .05), 0 8px 24px rgba(20, 40, 80, .07);
 }
 
-.wm-ai-card .wm-sec-title { margin: 0 0 16px; }
+.wm-ai-card .wm-sec-title { margin: 0 0 12px; }
 
 .wm-ai-card .wm-lead { margin: 0; font-size: 17px; line-height: 1.7; }
 
@@ -281,8 +283,8 @@ html:has(#wm-main) { scroll-behavior: smooth; }
 #wm-main .wm-ai-lead { color: var(--wm-ink); }
 
 .wm-ai-close {
-  margin: 24px 0 0;
-  padding-top: 22px;
+  margin: 18px 0 0;
+  padding-top: 16px;
   border-top: 1px solid var(--wm-border);
   font-size: 18px;
   font-weight: 700;
