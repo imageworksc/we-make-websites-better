@@ -265,7 +265,7 @@ html:has(#wm-main) { scroll-behavior: smooth; }
    the marketing services (no border, soft shadow), so the page keeps one
    card language. */
 .wm-ai-card {
-  max-width: 760px;
+  max-width: 1000px;
   margin-inline: auto;
   padding: clamp(24px, 3vw, 36px) clamp(22px, 3.6vw, 44px);
   text-align: left;
@@ -275,6 +275,10 @@ html:has(#wm-main) { scroll-behavior: smooth; }
 }
 
 .wm-ai-card .wm-sec-title { margin: 0 0 12px; }
+
+/* "slim" here means short: inside this card the copy runs the card's full
+   width (an exception to the 60% measure) so it takes fewer lines */
+#wm-main .wm-ai-card :is(.wm-sec-title, p) { max-width: none; }
 
 .wm-ai-card .wm-lead { margin: 0; font-size: 17px; line-height: 1.7; }
 
@@ -699,6 +703,10 @@ html:has(#wm-main) { scroll-behavior: smooth; }
    The three "No" lines sit under the copy, unboxed, and the 1997 card is
    centred against the whole left column. */
 
+/* on the deep blue band the heading's accent takes the brighter brand green;
+   the darker one is for light grounds and loses contrast here */
+.wm-band--deep .wm-sec-title em { color: var(--wm-green); }
+
 .wm-band--exp { padding-block: clamp(52px, 6.4vw, 88px); }
 
 .wm-price-copy .wm-sec-title { margin: 0 0 4px; }
@@ -869,10 +877,15 @@ html:has(#wm-main) { scroll-behavior: smooth; }
 /* 11. Breakpoints (widest first)
    -------------------------------------------------------------------------- */
 
-@media (max-width: 1000px) {
+/* the service cards go two across before four get cramped */
+@media (max-width: 1100px) {
   #wm-main .wm-svc li,
   #wm-main .wm-svc li:nth-child(n+5) { grid-column: span 6; }
   #wm-main .wm-svc li:last-child { grid-column: 1 / -1; }
+}
+
+@media (max-width: 1000px) {
+  .wm-feat-list { max-width: 100%; }
 
   .wm-contact { grid-template-columns: minmax(0, 1fr); }
 }
