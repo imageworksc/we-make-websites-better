@@ -496,6 +496,39 @@ html:has(#wm-main) { scroll-behavior: smooth; }
 
 #wm-main .wm-tbl__list p { margin: 0; font-size: 15px; line-height: 1.6; color: var(--wm-muted); }
 
+/* Step 5, the custom design layer, is the step that matters most: a pale
+   green ground, its three points on small green dots, and a closing line. */
+.wm-tbl__list li.wm-tbl__key {
+  margin: 6px -16px;
+  padding: 20px 16px;
+  border-bottom: 0;
+  border-radius: var(--wm-r);
+  background: var(--wm-chip-green);
+}
+.wm-tbl__sub { list-style: none; margin: 10px 0 0; padding: 0; }
+#wm-main .wm-tbl__sub li {
+  display: block;
+  position: relative;
+  margin: 0;
+  padding: 0 0 0 16px;
+  border: 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--wm-muted);
+}
+#wm-main .wm-tbl__sub li + li { margin-top: 6px; }
+.wm-tbl__sub li::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: .6em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--wm-green-ink);
+}
+#wm-main .wm-tbl__list .wm-tbl__close { margin-top: 10px; font-weight: 700; color: var(--wm-navy); }
+
 /* 7. Website Worth Marketing
    --------------------------------------------------------------------------
    The closing link under the left-hand copy. */
