@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#143c66">
 <link rel="stylesheet" href="css/styles.css?v=32">
 <link rel="stylesheet" href="css/chrome.css?v=30">
-<link rel="stylesheet" href="css/page.css?v=53">
+<link rel="stylesheet" href="css/page.css?v=54">
 </head>
 <body>
 <a class="wm-skip-to-content" href="#wm-main">Skip to content</a>
@@ -117,32 +117,19 @@
         </div>
       </div>
 
-      <!-- The headline drawn: an outdated site, and the same site made better
-           over it. Small and decorative; the copy carries the meaning. -->
-      <div class="wm-hviz" aria-hidden="true">
-        <div class="wm-hviz__win wm-hviz__win--old">
-          <span class="wm-hviz__tag">Before</span>
-          <div class="wm-hviz__bar"><i></i><i></i><i></i></div>
-          <div class="wm-hviz__page">
-            <span class="wm-hviz__head"></span>
-            <span class="wm-hviz__row"><i></i><i></i></span>
-            <span class="wm-hviz__lines"><i></i><i></i><i></i><i></i></span>
-          </div>
-        </div>
-        <div class="wm-hviz__win wm-hviz__win--new">
-          <span class="wm-hviz__tag wm-hviz__tag--new">After</span>
-          <div class="wm-hviz__bar"><i></i><i></i><i></i></div>
-          <div class="wm-hviz__page">
-            <span class="wm-hviz__nav"><b></b><i></i><i></i><i></i><u></u></span>
-            <span class="wm-hviz__hero">
-              <i class="wm-hviz__h1"></i>
-              <i class="wm-hviz__h2"></i>
-              <i class="wm-hviz__btn"></i>
-            </span>
-            <span class="wm-hviz__tiles"><i></i><i></i><i></i></span>
-          </div>
-        </div>
-        <span class="wm-hviz__arrow"><svg><use href="#i-arrow"/></svg></span>
+      <!-- The headline in one gesture: your website today, then a lot better.
+           Decorative; the copy carries the meaning. -->
+      <div class="wm-lift" aria-hidden="true">
+        <span class="wm-lift__label">Your website</span>
+        <svg class="wm-lift__chart" viewBox="0 0 280 150">
+          <line class="wm-lift__base" x1="10" y1="132" x2="270" y2="132"/>
+          <path class="wm-lift__area" d="M22 116 C 90 116, 120 98, 160 70 S 230 26, 258 22 L 258 132 L 22 132 Z"/>
+          <path class="wm-lift__line" d="M22 116 C 90 116, 120 98, 160 70 S 230 26, 258 22"/>
+          <circle class="wm-lift__from" cx="22" cy="116" r="6"/>
+          <circle class="wm-lift__halo" cx="258" cy="22" r="14"/>
+          <circle class="wm-lift__to" cx="258" cy="22" r="7"/>
+        </svg>
+        <span class="wm-lift__ends"><span>Today</span><b>A lot better</b></span>
       </div>
     </div>
   </section>

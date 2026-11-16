@@ -74,125 +74,77 @@ html:has(#wm-main) { scroll-behavior: smooth; }
 
 .wm-hero .wm-hero-sub { max-width: 60ch; }
 
-/* copy on the left, a small before/after on the right */
+/* copy on the left, a small graphic on the right */
 .wm-hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 360px);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 320px);
   gap: clamp(32px, 5vw, 72px);
   align-items: center;
 }
 
-.wm-hviz {
-  position: relative;
+/* the hero graphic: one small card, one upward curve from today to a lot
+   better. Not a browser; nothing to read but the two ends. */
+.wm-lift {
+  justify-self: end;
   width: 100%;
-  aspect-ratio: 360 / 290;
-}
-
-.wm-hviz i,
-.wm-hviz b,
-.wm-hviz u { display: block; }
-
-.wm-hviz__win {
-  position: absolute;
-  width: 76%;
+  max-width: 320px;
+  padding: 22px 24px 20px;
   background: var(--wm-white);
-  border: 1px solid var(--wm-border);
   border-radius: var(--wm-r);
+  box-shadow: 0 1px 2px rgba(20, 40, 80, .05), 0 14px 34px rgba(20, 40, 80, .1);
 }
 
-.wm-hviz__win--old { top: 0; left: 0; box-shadow: var(--wm-shadow-flat); }
-
-.wm-hviz__win--new { right: 0; bottom: 0; box-shadow: var(--wm-shadow-card); }
-
-.wm-hviz__tag {
-  position: absolute;
-  top: -11px;
-  left: 12px;
-  padding: 3px 9px;
-  border-radius: var(--wm-r);
-  background: var(--wm-grey-soft);
-  color: var(--wm-grey-ink);
-  font-size: 10px;
+.wm-lift__label {
+  display: block;
+  font-size: 11.5px;
   font-weight: 800;
-  letter-spacing: .1em;
+  letter-spacing: .14em;
   text-transform: uppercase;
+  color: var(--wm-faint);
 }
 
-.wm-hviz__tag--new { background: var(--wm-green); color: var(--wm-white); }
+.wm-lift__chart { display: block; width: 100%; height: auto; margin: 10px 0 6px; overflow: visible; }
 
-.wm-hviz__bar {
+.wm-lift__base { stroke: var(--wm-border); stroke-width: 1.5; }
+
+.wm-lift__area { fill: var(--wm-chip-green); opacity: .7; }
+
+.wm-lift__line {
+  fill: none;
+  stroke: var(--wm-green);
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.wm-lift__from { fill: var(--wm-white); stroke: #b8c4d4; stroke-width: 3; }
+
+.wm-lift__halo { fill: var(--wm-green); opacity: .18; }
+
+.wm-lift__to { fill: var(--wm-green); stroke: var(--wm-white); stroke-width: 3; }
+
+.wm-lift__ends {
   display: flex;
-  justify-content: flex-end;
-  gap: 4px;
-  padding: 7px 10px;
-  border-bottom: 1px solid var(--wm-border-soft);
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--wm-faint);
 }
 
-.wm-hviz__bar i { width: 6px; height: 6px; border-radius: 50%; background: #d5dde8; }
+.wm-lift__ends b { font-weight: 800; color: var(--wm-green-ink); }
 
-.wm-hviz__page { display: flex; flex-direction: column; gap: 8px; padding: 11px 12px 13px; }
-
-/* before: a grey bar of a header, two boxes crowded together, small text */
-.wm-hviz__head { display: block; height: 18px; background: #c9d1dc; }
-
-.wm-hviz__row { display: grid; grid-template-columns: 1.4fr 1fr; gap: 6px; }
-
-.wm-hviz__row i { height: 42px; background: #e3e8ef; border: 1px solid #d3dae4; }
-
-.wm-hviz__lines { display: flex; flex-direction: column; gap: 4px; }
-
-.wm-hviz__lines i { height: 4px; background: #dfe4eb; }
-
-.wm-hviz__lines i:nth-child(2) { width: 88%; }
-
-.wm-hviz__lines i:nth-child(3) { width: 94%; }
-
-.wm-hviz__lines i:nth-child(4) { width: 60%; }
-
-/* after: a clean nav, the brand hero with a call, three tidy cards */
-.wm-hviz__nav { display: flex; align-items: center; gap: 6px; }
-
-.wm-hviz__nav b { width: 13px; height: 13px; border-radius: 50%; background: var(--wm-green); }
-
-.wm-hviz__nav i { width: 20px; height: 4px; background: #c9d6e6; }
-
-.wm-hviz__nav u { width: 30px; height: 9px; margin-left: auto; border-radius: var(--wm-r); background: var(--wm-green); }
-
-.wm-hviz__hero {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding: 13px 11px;
-  border-radius: var(--wm-r);
-  background: linear-gradient(135deg, var(--wm-blue), var(--wm-navy-deep));
+/* the line draws itself once on load */
+@media (prefers-reduced-motion: no-preference) {
+  .wm-lift__line { stroke-dasharray: 320; stroke-dashoffset: 320; animation: wm-lift-draw 1.4s .5s var(--wm-ease) forwards; }
+  .wm-lift__halo,
+  .wm-lift__to { opacity: 0; animation: wm-lift-pop .4s 1.7s var(--wm-ease) forwards; }
+  .wm-lift__halo { animation-name: wm-lift-halo; }
 }
 
-.wm-hviz__h1 { width: 78%; height: 7px; background: rgba(255, 255, 255, .92); }
+@keyframes wm-lift-draw { to { stroke-dashoffset: 0; } }
 
-.wm-hviz__h2 { width: 48%; height: 7px; background: var(--wm-green); }
+@keyframes wm-lift-pop { to { opacity: 1; } }
 
-.wm-hviz__btn { width: 52px; height: 13px; margin-top: 3px; border-radius: var(--wm-r); background: var(--wm-white); }
-
-.wm-hviz__tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
-
-.wm-hviz__tiles i { height: 26px; border-top: 3px solid var(--wm-green); background: var(--wm-band-tint); }
-
-/* the turn from one to the other */
-.wm-hviz__arrow {
-  position: absolute;
-  left: 8%;
-  bottom: 14%;
-  display: grid;
-  place-items: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--wm-white);
-  box-shadow: var(--wm-shadow-card);
-  color: var(--wm-green-ink);
-}
-
-.wm-hviz__arrow svg { width: 16px; height: 16px; transform: rotate(40deg); }
+@keyframes wm-lift-halo { to { opacity: .18; } }
 
 /* 3. Slim sections
    --------------------------------------------------------------------------
@@ -860,7 +812,7 @@ html:has(#wm-main) { scroll-behavior: smooth; }
 
 @media (max-width: 900px) {
   .wm-hero-grid { grid-template-columns: minmax(0, 1fr); }
-  .wm-hviz { max-width: 340px; margin-top: 8px; }
+  .wm-lift { justify-self: start; }
   .wm-br-d { display: none; }
 }
 
