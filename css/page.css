@@ -89,7 +89,7 @@ html:has(#wm-main) { scroll-behavior: smooth; }
   justify-self: end;
   width: 100%;
   max-width: 340px;
-  padding: 34px 0 30px;
+  padding: 34px 0 0;
 }
 
 .wm-lift__chart { display: block; width: 100%; height: auto; overflow: visible; }
@@ -171,7 +171,7 @@ html:has(#wm-main) { scroll-behavior: smooth; }
 
 .wm-lift__tag--from {
   left: -6px;
-  bottom: 52px;
+  bottom: 14px;
   background: var(--wm-white);
   color: var(--wm-muted);
 }
