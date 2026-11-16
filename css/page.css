@@ -644,56 +644,48 @@ html:has(#wm-main) { scroll-behavior: smooth; }
 
 #wm-main .wm-mk-sub p { margin: 0; font-size: 16.5px; line-height: 1.7; color: var(--wm-muted); }
 
-/* the services: borderless white cards on the tint, four over three. The
-   second row stretches so the grid has no gap. Each card leads with a
-   free-standing icon; on hover the card lifts, its shadow deepens and the
-   icon turns green. No top rule, no icon box. */
+/* the services: an open index, no boxes. One row per service across the
+   width (icon, name, description), split only by hairlines. On hover the
+   name turns green and the icon steps in. */
 .wm-svc {
   list-style: none;
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: 18px;
-  margin: 28px 0 0;
+  margin: 32px 0 0;
   padding: 0;
+  border-top: 1px solid rgba(20, 60, 102, .14);
 }
 
 #wm-main .wm-svc li {
-  grid-column: span 3;
-  padding: 28px 26px 30px;
-  background: var(--wm-white);
-  border: 0;
-  border-radius: var(--wm-r);
-  box-shadow: 0 1px 2px rgba(20, 40, 80, .05), 0 8px 24px rgba(20, 40, 80, .07);
-  transition: transform .35s var(--wm-ease), box-shadow .35s var(--wm-ease);
-}
-
-#wm-main .wm-svc li:nth-child(n+5) { grid-column: span 4; }
-
-#wm-main .wm-svc li:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 2px 4px rgba(20, 40, 80, .06), 0 18px 40px rgba(20, 40, 80, .13);
+  display: grid;
+  grid-template-columns: 44px minmax(0, 340px) minmax(0, 1fr);
+  align-items: center;
+  gap: 0 28px;
+  padding: 22px 4px;
+  border-bottom: 1px solid rgba(20, 60, 102, .14);
 }
 
 .wm-svc__ic {
   display: block;
   color: var(--wm-blue);
+  transition: color .3s var(--wm-ease), transform .3s var(--wm-ease);
+}
+
+.wm-svc__ic svg { display: block; width: 28px; height: 28px; }
+
+#wm-main .wm-svc h4 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: -.3px;
+  color: var(--wm-navy);
   transition: color .3s var(--wm-ease);
 }
 
-.wm-svc__ic svg { display: block; width: 30px; height: 30px; }
+#wm-main .wm-svc p { margin: 0; max-width: 56ch; font-size: 16px; line-height: 1.6; color: var(--wm-muted); }
 
-#wm-main .wm-svc li:hover .wm-svc__ic { color: var(--wm-green-ink); }
+#wm-main .wm-svc li:hover h4 { color: var(--wm-green-ink); }
 
-#wm-main .wm-svc h4 {
-  margin: 18px 0 6px;
-  font-size: 16.5px;
-  font-weight: 800;
-  line-height: 1.35;
-  letter-spacing: -.2px;
-  color: var(--wm-navy);
-}
-
-#wm-main .wm-svc p { margin: 0; font-size: 14.5px; line-height: 1.6; color: var(--wm-muted); }
+#wm-main .wm-svc li:hover .wm-svc__ic { color: var(--wm-green-ink); transform: translateX(4px); }
 
 .wm-svc-cta { margin-top: 32px; }
 
@@ -877,14 +869,8 @@ html:has(#wm-main) { scroll-behavior: smooth; }
 /* 11. Breakpoints (widest first)
    -------------------------------------------------------------------------- */
 
-/* the service cards go two across before four get cramped */
-@media (max-width: 1100px) {
-  #wm-main .wm-svc li,
-  #wm-main .wm-svc li:nth-child(n+5) { grid-column: span 6; }
-  #wm-main .wm-svc li:last-child { grid-column: 1 / -1; }
-}
-
 @media (max-width: 1000px) {
+  #wm-main .wm-svc li { grid-template-columns: 40px minmax(0, 240px) minmax(0, 1fr); gap: 0 20px; }
   .wm-feat-list { max-width: 100%; }
 
   .wm-contact { grid-template-columns: minmax(0, 1fr); }
@@ -915,20 +901,17 @@ html:has(#wm-main) { scroll-behavior: smooth; }
 .wm-tbl__cta .wm-btn { width: 100%; }
   .wm-duo { grid-template-columns: minmax(0, 1fr); }
   .wm-fgrid { grid-template-columns: minmax(0, 1fr); }
-  /* phones: one column, icon beside the name so the seven stay short */
-  #wm-main .wm-svc li,
-  #wm-main .wm-svc li:nth-child(n+5),
-  #wm-main .wm-svc li:last-child {
-    grid-column: 1 / -1;
-    display: grid;
+  /* phones: icon beside the name, the description under it */
+  #wm-main .wm-svc li {
     grid-template-columns: 26px minmax(0, 1fr);
-    gap: 2px 16px;
-    padding: 18px;
+    align-items: start;
+    gap: 4px 14px;
+    padding: 18px 0;
   }
   .wm-svc__ic { grid-row: 1 / 3; padding-top: 2px; }
-  .wm-svc__ic svg { width: 26px; height: 26px; }
-  #wm-main .wm-svc h4 { margin: 2px 0 0; }
-  #wm-main .wm-svc li:hover { transform: none; }
+  .wm-svc__ic svg { width: 24px; height: 24px; }
+  #wm-main .wm-svc h4 { font-size: 17px; }
+  #wm-main .wm-svc p { font-size: 15px; }
   .wm-svc-cta .wm-btn { width: 100%; }
   .wm-feat-list { grid-template-columns: minmax(0, 1fr); }
   .wm-feat-list li:nth-child(2) { border-top: 0; }
