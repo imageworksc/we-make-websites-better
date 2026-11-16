@@ -574,6 +574,7 @@ html:has(#wm-main):not([data-anim="on"]) .wm-hl { background-size: 100% 2px; }
       animation: wm-hero-in .8s var(--wm-ease) .34s backwards;
     
     
+    
     }
   }
 }
@@ -608,6 +609,7 @@ html:has(#wm-main):not([data-anim="on"]) .wm-hl { background-size: 100% 2px; }
     animation-iteration-count: 1 !important;
     transition-duration: .01ms !important;
     scroll-behavior: auto !important;
+  
   
   
   }
