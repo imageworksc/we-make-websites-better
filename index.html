@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#143c66">
 <link rel="stylesheet" href="css/styles.css?v=32">
 <link rel="stylesheet" href="css/chrome.css?v=30">
-<link rel="stylesheet" href="css/page.css?v=56">
+<link rel="stylesheet" href="css/page.css?v=58">
 </head>
 <body>
 <a class="wm-skip-to-content" href="#wm-main">Skip to content</a>
@@ -124,10 +124,34 @@
         <span class="wm-lift__tag wm-lift__tag--from">Today</span>
         <span class="wm-lift__tag wm-lift__tag--to">A lot better</span>
         <svg class="wm-lift__chart" viewBox="0 0 280 150">
+          <line class="wm-lift__grid" x1="10" y1="40" x2="270" y2="40"/>
+          <line class="wm-lift__grid" x1="10" y1="86" x2="270" y2="86"/>
           <line class="wm-lift__base" x1="10" y1="132" x2="270" y2="132"/>
+          <path class="wm-lift__flat" d="M22 116 C 110 116, 180 114, 258 112"/>
           <path class="wm-lift__area" d="M22 116 C 90 116, 120 98, 160 70 S 230 26, 258 22 L 258 132 L 22 132 Z"/>
           <path class="wm-lift__line" d="M22 116 C 90 116, 120 98, 160 70 S 230 26, 258 22"/>
           <circle class="wm-lift__from" cx="22" cy="116" r="6"/>
+          <g class="wm-lift__step wm-lift__step--1">
+            <line class="wm-lift__stem" x1="101.5" y1="103.5" x2="101.5" y2="86"/>
+            <circle class="wm-lift__node" cx="101.5" cy="103.5" r="4"/>
+            <circle class="wm-lift__chip" cx="101.5" cy="74" r="12"/>
+            <use href="#i-pen" x="95" y="67.5" width="13" height="13"/>
+            <text class="wm-lift__txt" x="118" y="78">Design</text>
+          </g>
+          <g class="wm-lift__step wm-lift__step--2">
+            <line class="wm-lift__stem" x1="160" y1="70" x2="160" y2="52"/>
+            <circle class="wm-lift__node" cx="160" cy="70" r="4"/>
+            <circle class="wm-lift__chip" cx="160" cy="40" r="12"/>
+            <use href="#i-page" x="153.5" y="33.5" width="13" height="13"/>
+            <text class="wm-lift__txt wm-lift__txt--end" x="144" y="44">Content</text>
+          </g>
+          <g class="wm-lift__step wm-lift__step--3">
+            <line class="wm-lift__stem" x1="213.5" y1="37" x2="213.5" y2="66"/>
+            <circle class="wm-lift__node" cx="213.5" cy="37" r="4"/>
+            <circle class="wm-lift__chip" cx="213.5" cy="78" r="12"/>
+            <use href="#i-phone" x="207" y="71.5" width="13" height="13"/>
+            <text class="wm-lift__txt" x="230" y="82">Mobile</text>
+          </g>
           <circle class="wm-lift__halo" cx="258" cy="22" r="14"/>
           <circle class="wm-lift__to" cx="258" cy="22" r="7"/>
         </svg>
