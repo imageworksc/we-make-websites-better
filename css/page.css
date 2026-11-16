@@ -598,12 +598,15 @@ html:has(#wm-main) { scroll-behavior: smooth; }
    list, then the services as tiles and the call. */
 
 /* the four ways people find you: text on a check, like the "No" lines in
-   Nearly 30 Years, in the light band's colours */
+   Nearly 30 Years, in the light band's colours. Two on each side, sized to
+   their text so the two columns sit close. */
 .wm-checks {
   list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  gap: 12px 56px;
   margin: 28px 0 0;
   padding: 0;
 }
@@ -899,6 +902,7 @@ html:has(#wm-main) { scroll-behavior: smooth; }
   .wm-tbl .wm-tbl__list,
   .wm-tbl__end { max-width: 100%; }
   .wm-tbl__stat { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .wm-checks { grid-template-rows: none; grid-auto-flow: row; }
   .wm-hero h1 { font-size: clamp(20px, 6.6vw, 46px); }
   .wm-mbar { display: block; }
   .sf-footer { padding-bottom: 76px; }
