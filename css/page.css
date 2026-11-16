@@ -82,32 +82,21 @@ html:has(#wm-main) { scroll-behavior: smooth; }
   align-items: center;
 }
 
-/* the hero graphic: one small card, one upward curve from today to a lot
-   better. Not a browser; nothing to read but the two ends. */
+/* the hero graphic: one upward curve from today to a lot better, floating
+   free on the hero washes (no card), its three words as tags. */
 .wm-lift {
+  position: relative;
   justify-self: end;
   width: 100%;
   max-width: 320px;
-  padding: 22px 24px 20px;
-  background: var(--wm-white);
-  border-radius: var(--wm-r);
-  box-shadow: 0 1px 2px rgba(20, 40, 80, .05), 0 14px 34px rgba(20, 40, 80, .1);
+  padding: 34px 0 30px;
 }
 
-.wm-lift__label {
-  display: block;
-  font-size: 11.5px;
-  font-weight: 800;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--wm-faint);
-}
+.wm-lift__chart { display: block; width: 100%; height: auto; overflow: visible; }
 
-.wm-lift__chart { display: block; width: 100%; height: auto; margin: 10px 0 6px; overflow: visible; }
+.wm-lift__base { stroke: rgba(20, 60, 102, .14); stroke-width: 1.5; }
 
-.wm-lift__base { stroke: var(--wm-border); stroke-width: 1.5; }
-
-.wm-lift__area { fill: var(--wm-chip-green); opacity: .7; }
+.wm-lift__area { fill: var(--wm-green); opacity: .12; }
 
 .wm-lift__line {
   fill: none;
@@ -122,15 +111,53 @@ html:has(#wm-main) { scroll-behavior: smooth; }
 
 .wm-lift__to { fill: var(--wm-green); stroke: var(--wm-white); stroke-width: 3; }
 
-.wm-lift__ends {
-  display: flex;
-  justify-content: space-between;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--wm-faint);
+/* the three words as tags */
+.wm-lift__tag {
+  position: absolute;
+  z-index: 1;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+  box-shadow: 0 1px 2px rgba(20, 40, 80, .06), 0 6px 16px rgba(20, 40, 80, .1);
 }
 
-.wm-lift__ends b { font-weight: 800; color: var(--wm-green-ink); }
+.wm-lift__tag--site {
+  top: 0;
+  left: 0;
+  background: var(--wm-white);
+  color: var(--wm-navy);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.wm-lift__tag--from {
+  left: -6px;
+  bottom: 52px;
+  background: var(--wm-white);
+  color: var(--wm-muted);
+}
+
+.wm-lift__tag--to {
+  right: -10px;
+  top: 4px;
+  background: var(--wm-green);
+  color: var(--wm-white);
+}
+
+/* it floats: a slow rise and fall, the chart and its tags together */
+@media (prefers-reduced-motion: no-preference) {
+  .wm-lift { animation: wm-lift-float 6s ease-in-out 2s infinite; }
+}
+
+@keyframes wm-lift-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
 
 /* the line draws itself once on load */
 @media (prefers-reduced-motion: no-preference) {
