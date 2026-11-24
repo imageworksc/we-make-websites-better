@@ -32,8 +32,15 @@
    - the wrapper is #wm-main with .html-wrapper. Never id="main" or the class
      "section": the theme caps both at 975-1000px. */
 
-/* Staging only: Drupal's body has no margin already. */
-body { margin: 0; }
+/* Staging only: Drupal's body has no margin already. Scoped to pages that
+   carry this landing so it never touches the rest of the site. */
+body:has(#wm-main) { margin: 0; }
+
+/* The theme spaces every list item (ul li { margin-bottom: 20px } at its
+   mobile breakpoint). Same specificity as that rule, loaded after it, so it
+   wins; any of our component classes still win over this. Same guard as the
+   entropion page's Drupal fix. */
+:where(.wm-scope) :is(ul, ol) > li { margin: 0; }
 
 /* Clears the theme's floated main menu so the hero keeps its full width. */
 #wm-main { display: block; clear: both; width: 100%; }

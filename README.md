@@ -52,6 +52,12 @@ on its own. These rules keep it rendering the same in both places:
   `overflow-x: clip` only when the field contains `#wm-main`.
 - **Button hovers** restate their colours, so Bootstrap's `a:hover` can't
   recolour them.
+- **List items:** the theme spaces every `ul li` 20px apart. `page.css` resets
+  `ul > li` / `ol > li` margins at the same specificity, loaded later, so it
+  wins while our component classes still win over it (as on the entropion
+  page).
+- **`body { margin: 0 }`** is staging only and scoped to `body:has(#wm-main)`,
+  so nothing here touches the rest of the site.
 - No inline width patches in the field. If one seems needed, the fix belongs in
   these files.
 
